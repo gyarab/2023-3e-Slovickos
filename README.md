@@ -10,3 +10,4 @@ KOKOS
 jahuuu
 brosko klonim - virtualizace
 kokot Leo to je pero - není pravda m malý
+říšník
