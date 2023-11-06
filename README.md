@@ -8,3 +8,4 @@ KOKOS
 
 ![pero a koul](https://truelovers.cz/komiksy/picoviny/001/picovina_1-koule-pero_featured.jpg)
 jahuuu
+brosko klonim
