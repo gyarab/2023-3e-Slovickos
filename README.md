@@ -2,4 +2,4 @@
 
 --------------------
 
-Aplikace pro efektivní učení slovíček = jop
+Aplikace pro efektivní učení slovíček = jop, os!
