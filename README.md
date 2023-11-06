@@ -2,4 +2,4 @@
 
 --------------------
 
-Aplikace pro efektivní učení slovíček
+Aplikace pro efektivní učení slovíček = jedem
