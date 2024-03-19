@@ -82,9 +82,9 @@ WSGI_APPLICATION = 'pokus4.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'jasne_poke',
+        'NAME': 'poke',
         'USER': 'root',
-        'PASSWORD': 'sBSp(UqSwE86',
+        'PASSWORD': 'brnoboss',
         'HOST':'127.0.0.1',
         'PORT':'3306',
     }

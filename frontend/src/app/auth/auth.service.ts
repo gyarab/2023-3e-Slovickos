@@ -11,14 +11,14 @@ export class AuthService {
     constructor(private http: HttpClient, private router: Router) {  }
 
     signup(account: signupModel) {
-        return this.http.post<AuthResData>('http://127.0.0.1:8000/api/accounts/signup/', account)
+        return this.http.post<AuthResData>('http://127.0.0.1:7000/api/accounts/signup/', account)
         .pipe(catchError(this.handleError), tap((res)=>{
             console.log(res)
         }))
     }
 
     login(account: loginModel) {
-        return this.http.post<AuthResData>('http://127.0.0.1:8000/api/accounts/login/', account)
+        return this.http.post<AuthResData>('http://127.0.0.1:7000/api/accounts/login/', account)
         .pipe(catchError(this.handleError), tap((res)=>{
             this.handleAuth(res);
         }))
