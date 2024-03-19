@@ -1,3 +1,9 @@
+# Backend
+create own venv in Pokus4 `python -m venv .venv`
+then activate venv
+run `pip install -r requirements.txt`
+
+
 # Frontend
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.3.
