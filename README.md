@@ -1,5 +1,5 @@
 # Backend
-create own venv in Pokus4 `python -m venv .venv`
+create own venv in backend `python -m venv .venv`
 then activate venv
 run `pip install -r requirements.txt`
 
