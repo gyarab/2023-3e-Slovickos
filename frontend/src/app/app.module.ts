@@ -7,12 +7,16 @@ import { HeaderComponent } from './header/header.component';
 import { AccountComponent } from './account/account.component';
 import { AuthModule } from './auth/auth.module';
 import { HttpClientModule } from '@angular/common/http';
+import { GetsetComponent } from './getset/getset.component';
+
+import { provideHttpClient, withFetch } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     AccountComponent,
+    GetsetComponent,
   ],
   imports: [
     BrowserModule,
@@ -21,8 +25,10 @@ import { HttpClientModule } from '@angular/common/http';
     AuthModule,
   ],
   providers: [
-    provideClientHydration()
+    provideClientHydration(),
+    provideHttpClient(withFetch())
+    
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent, GetsetComponent]
 })
 export class AppModule { }

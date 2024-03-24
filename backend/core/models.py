@@ -30,6 +30,7 @@ class UserManager(BaseUserManager):
         return user
 
 class User(AbstractBaseUser, PermissionsMixin):
+    id = models.AutoField(primary_key=True)
     username = models.CharField(max_length=200,unique=True,null=True)
     email = models.EmailField(max_length=255,unique=True)
     name = models.CharField(max_length=100)
@@ -39,3 +40,48 @@ class User(AbstractBaseUser, PermissionsMixin):
     objects = UserManager()
 
     USERNAME_FIELD = 'email'
+
+class Trida(models.Model):
+    id = models.AutoField(unique=True, primary_key=True)
+    jmeno = models.CharField(max_length=50)
+    id_spravce = models.ForeignKey(User, on_delete=models.CASCADE)
+
+class Slozka(models.Model):
+    id = models.AutoField(unique=True, primary_key=True)
+    jmeno = models.CharField(max_length=50)
+    trida_id = models.ForeignKey(Trida, on_delete=models.CASCADE, default=None)
+    id_vlastnik = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
+
+class Seznam_slov(models.Model):
+    id = models.AutoField(unique=True, primary_key=True)
+    jmeno = models.CharField(max_length=50)
+    id_vlastnik = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
+
+class Slovo(models.Model):
+    id = models.AutoField(unique=True, primary_key=True)
+    zaklad = models.CharField(max_length=100)
+    preklad = models.CharField(max_length=100)
+
+class Uzivatel_Trida(models.Model):
+    uzivatel_id = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
+    trida_id = models.ForeignKey(Trida, on_delete=models.CASCADE, default=None)
+    prava = models.BooleanField(default=False)
+
+class Uzivatel_Seznam_slov(models.Model):
+    uzivatel_id = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
+    seznam_slov_id = models.ForeignKey(Seznam_slov, on_delete=models.CASCADE, default=None)
+    prava = models.BooleanField(default=False)
+    cas = models.DateField()
+
+class Trida_Seznam(models.Model):
+    trida_id = models.ForeignKey(Trida, on_delete=models.CASCADE, default=None)
+    seznam_slov_id = models.ForeignKey(Seznam_slov, on_delete=models.CASCADE, default=None)
+
+class Slozka_Seznam(models.Model):
+    slozka_id = models.ForeignKey(Slozka, on_delete=models.CASCADE, default=None)
+    seznam_slov_id = models.ForeignKey(Seznam_slov, on_delete=models.CASCADE, default=None)
+
+class Uspesnost(models.Model):
+    slovo_id = models.ForeignKey(Slovo, on_delete=models.CASCADE, default=None)
+    uzivatel_id = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
+    zaklad = models.BooleanField(default=True)
