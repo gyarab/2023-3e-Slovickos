@@ -1,26 +1,21 @@
 from django.shortcuts import render
-from django.http import JsonResponse
-from rest_framework import viewsets
-from .models import User
-
-from rest_framework import generics
 from .models import Seznam_slov
-from .serializers import SeznamSlovSerializer
+from .serializers import Seznam_slov_serializer
+from rest_framework.decorators import api_view
+from django.http import JsonResponse
 
-class getSet(generics.ListAPIView):
-    queryset = Seznam_slov.objects.all()
-    serializer_class = SeznamSlovSerializer
-    
-'''
-def seznam_slov_view(request):
-    seznam_slovs = Seznam_slov.objects.all().values('jmeno')
-    return JsonResponse(list(seznam_slovs), safe=False)
-'''
-
-'''
-obj = MyModel.objects.get(pk=1)
-print(obj.my_boolean_field)  # Output: False
-
-obj.my_boolean_field = True
-obj.save()
-'''
+            
+@api_view(['GET', 'POST',])
+def show_sets(request):
+    global user_id
+    if request.method == 'POST':
+        user_id = request.data['userId']
+            # Return the serialized data
+        return JsonResponse("Diky moc Angular bro")
+        # Query the database for objects with id_vlastnik equal to user_id
+    elif request.method == 'GET':
+        queryset = Seznam_slov.objects.filter(id_vlastnik_id=user_id)
+        # Serialize the queryset
+        serializer = Seznam_slov_serializer(queryset, many=True)
+            # For GET requests, you might want to return an empty response or a message
+        return JsonResponse(serializer.data, safe=False)

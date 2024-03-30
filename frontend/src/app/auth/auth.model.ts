@@ -1,3 +1,5 @@
+import internal from "stream"
+
 export interface signupModel {
     email: string,
     username: string,

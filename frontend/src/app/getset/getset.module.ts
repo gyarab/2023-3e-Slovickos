@@ -6,10 +6,10 @@ import { GetsetComponent } from './getset.component';
 
 @NgModule({
   declarations: [
-    GetsetComponent
+    GetsetComponent,
   ],
   imports: [
-    CommonModule
+    CommonModule,
   ]
 })
 export class GetsetModule { }

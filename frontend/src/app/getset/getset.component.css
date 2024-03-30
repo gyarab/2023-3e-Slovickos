@@ -1,0 +1,33 @@
+.set-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .set-item {
+    border-radius: 5px;
+    margin-bottom: 10px;
+    padding: 10px;
+  }
+  
+  .set-item h2 {
+    margin-top: 0;
+  }
+  
+  .set-item p {
+    margin: 5px 0;
+  }
+  .set-button {
+    background-color: #0E0066; /* Darker blue color */
+    color: #fff; /* White text color */
+    padding: 10px; /* Padding to adjust size */
+    border: none; /* Remove border */
+    width: 100%; /* Make the button width same as the list item */
+    text-align: left; /* Align text to the left */
+    border-radius: 5px;
+  }
+  
+  .set-button:hover {
+    background-color: #2F0066; /* Darker blue color on hover */
+  }
+  
+    

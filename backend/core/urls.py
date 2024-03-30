@@ -20,5 +20,5 @@ from core import views
 #from core.views import core_views  nwm jak se dela
 
 urlpatterns = [
-    path('', views.getSet.as_view())
+    path('', views.show_sets)
 ]

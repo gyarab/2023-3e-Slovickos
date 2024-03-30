@@ -1,9 +1,9 @@
-
-<ul>
-    <li *ngFor="let product of products">
-      <h2>{{ product.jmeno }}</h2>
-      <p>{{ product.id }}</p>
-      <p>Price: {{ product.id_vlastnik }}</p>
-    </li>
+<ul class="set-list">
+  <li *ngFor="let set of sets" class="set-item">
+    <button class="set-button">
+      <h1>{{ set.jmeno }}</h1>
+      <p>ID: {{ set.id }}</p>
+      <p>ID Vlastnik: {{ set.id_vlastnik }}</p>
+    </button>
+  </li>
 </ul>
-  

@@ -10,19 +10,23 @@ import { HttpClientModule } from '@angular/common/http';
 import { GetsetComponent } from './getset/getset.component';
 
 import { provideHttpClient, withFetch } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     AccountComponent,
-    GetsetComponent,
+    GetsetComponent
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     AuthModule,
+    CommonModule
+    
   ],
   providers: [
     provideClientHydration(),
