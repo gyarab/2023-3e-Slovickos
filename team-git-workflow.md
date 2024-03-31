@@ -8,6 +8,7 @@ Na každou novou featuru, nebo úkol si vytvoříme novou branch.
 - Kdyz mam pocit, ze mam hotovo, tak vytvořím pull request
 - V pull requestu popíšu, na čem jsem dělal (v bodech) a nastavím někoho na review
 - Když to reviewer zkoukne, tak se obsah branch mergne do mainu
+- Před mergem vyřeším konflikty
 
 ## Proč je to dobré?
 - můžeme pracovat paralelně a neřešit tolik konflikty
