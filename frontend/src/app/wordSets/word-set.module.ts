@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { GetsetComponent } from './getset.component';
+import { WordSetListComponent } from './word-set-list/word-set-list.component';
 
 
 
 @NgModule({
   declarations: [
-    GetsetComponent,
+    WordSetListComponent,
   ],
   imports: [
     CommonModule,
   ]
 })
-export class GetsetModule { }
+export class WordSetModule { }

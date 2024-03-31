@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { DataService } from './getset.service';
+import { DataService } from './word-set.service';
 
 describe('GetsetService', () => {
   let service: DataService;

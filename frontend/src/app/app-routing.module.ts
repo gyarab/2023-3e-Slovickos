@@ -2,12 +2,12 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AccountComponent } from './account/account.component';
 import { AuthComponent } from './auth/auth.component';
-import { GetsetComponent } from './getset/getset.component';
+import { WordSetListComponent } from './wordSets/word-set-list/word-set-list.component';
 
 const routes: Routes = [
   {path: 'profile', component: AccountComponent},
   {path: 'auth', component: AuthComponent},
-  {path: 'getSet', component: GetsetComponent},
+  {path: 'word-sets', component: WordSetListComponent},
 ];
 
 @NgModule({

@@ -7,25 +7,24 @@ import { HeaderComponent } from './header/header.component';
 import { AccountComponent } from './account/account.component';
 import { AuthModule } from './auth/auth.module';
 import { HttpClientModule } from '@angular/common/http';
-import { GetsetComponent } from './getset/getset.component';
 
 import { provideHttpClient, withFetch } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { WordSetModule } from './wordSets/word-set.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     AccountComponent,
-    GetsetComponent
-
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     AuthModule,
-    CommonModule
+    CommonModule,
+    WordSetModule,
     
   ],
   providers: [
@@ -33,6 +32,6 @@ import { CommonModule } from '@angular/common';
     provideHttpClient(withFetch())
     
   ],
-  bootstrap: [AppComponent, GetsetComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

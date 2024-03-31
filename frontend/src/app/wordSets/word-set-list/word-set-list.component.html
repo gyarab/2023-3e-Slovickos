@@ -1,9 +1,9 @@
 <ul class="set-list">
   <li *ngFor="let set of sets" class="set-item">
     <button class="set-button">
-      <h1>{{ set.jmeno }}</h1>
+      <h1>{{ set.name }}</h1>
       <p>ID: {{ set.id }}</p>
-      <p>ID Vlastnik: {{ set.id_vlastnik }}</p>
+      <p>ID Vlastnik: {{ set.owner_id }}</p>
     </button>
   </li>
 </ul>
