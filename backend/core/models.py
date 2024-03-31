@@ -41,47 +41,48 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     USERNAME_FIELD = 'email'
 
-class Trida(models.Model):
+class User_group(models.Model):
     id = models.AutoField(unique=True, primary_key=True)
-    jmeno = models.CharField(max_length=50)
-    id_spravce = models.ForeignKey(User, on_delete=models.CASCADE)
+    name = models.CharField(max_length=50)
+    admin_id = models.ForeignKey(User, on_delete=models.CASCADE)
 
-class Slozka(models.Model):
+class Folder(models.Model):
     id = models.AutoField(unique=True, primary_key=True)
-    jmeno = models.CharField(max_length=50)
-    trida_id = models.ForeignKey(Trida, on_delete=models.CASCADE, default=None)
-    id_vlastnik = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
+    name = models.CharField(max_length=50)
+    group_id = models.ForeignKey(User_group, on_delete=models.CASCADE, default=None)
+    owner_id = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
 
-class Seznam_slov(models.Model):
+class Word_set(models.Model):
     id = models.AutoField(unique=True, primary_key=True)
-    jmeno = models.CharField(max_length=50)
-    id_vlastnik = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
+    name = models.CharField(max_length=50)
+    owner_id = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
 
-class Slovo(models.Model):
+class Word(models.Model):
     id = models.AutoField(unique=True, primary_key=True)
-    zaklad = models.CharField(max_length=100)
-    preklad = models.CharField(max_length=100)
+    word_set_id = models.ForeignKey(Word_set, on_delete=models.CASCADE, default=None)
+    base = models.CharField(max_length=100)
+    translation = models.CharField(max_length=100)
 
-class Uzivatel_Trida(models.Model):
-    uzivatel_id = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
-    trida_id = models.ForeignKey(Trida, on_delete=models.CASCADE, default=None)
-    prava = models.BooleanField(default=False)
+class User_User_group_mapping(models.Model):
+    user_id = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
+    group_id = models.ForeignKey(User_group, on_delete=models.CASCADE, default=None)
+    has_access = models.BooleanField(default=False)
 
-class Uzivatel_Seznam_slov(models.Model):
-    uzivatel_id = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
-    seznam_slov_id = models.ForeignKey(Seznam_slov, on_delete=models.CASCADE, default=None)
-    prava = models.BooleanField(default=False)
-    cas = models.DateField()
+class User_Word_set_mapping(models.Model):
+    user_id = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
+    word_set_id = models.ForeignKey(Word_set, on_delete=models.CASCADE, default=None)
+    has_access = models.BooleanField(default=False)
+    last_view = models.DateField()
 
-class Trida_Seznam(models.Model):
-    trida_id = models.ForeignKey(Trida, on_delete=models.CASCADE, default=None)
-    seznam_slov_id = models.ForeignKey(Seznam_slov, on_delete=models.CASCADE, default=None)
+class User_group_Word_set_mapping(models.Model):
+    group_id = models.ForeignKey(User_group, on_delete=models.CASCADE, default=None)
+    word_set_id = models.ForeignKey(Word_set, on_delete=models.CASCADE, default=None)
 
-class Slozka_Seznam(models.Model):
-    slozka_id = models.ForeignKey(Slozka, on_delete=models.CASCADE, default=None)
-    seznam_slov_id = models.ForeignKey(Seznam_slov, on_delete=models.CASCADE, default=None)
+class Folder_Word_set_mapping(models.Model):
+    folder_id = models.ForeignKey(Folder, on_delete=models.CASCADE, default=None)
+    word_set_id = models.ForeignKey(Word_set, on_delete=models.CASCADE, default=None)
 
-class Uspesnost(models.Model):
-    slovo_id = models.ForeignKey(Slovo, on_delete=models.CASCADE, default=None)
-    uzivatel_id = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
-    zaklad = models.BooleanField(default=True)
+class Success_rate(models.Model):
+    word_id = models.ForeignKey(Word, on_delete=models.CASCADE, default=None)
+    user_id = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
+    successfuly_translated = models.BooleanField(default=True)

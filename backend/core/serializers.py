@@ -1,7 +1,7 @@
 from rest_framework import serializers
-from .models import Seznam_slov
+from .models import Word_set
 
-class Seznam_slov_serializer(serializers.ModelSerializer):
+class Word_set_serializer(serializers.ModelSerializer):
     class Meta:
-        model = Seznam_slov
+        model = Word_set
         fields = '__all__'

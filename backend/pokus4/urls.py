@@ -21,5 +21,5 @@ from django.urls import path,include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/accounts/',include('accounts.urls')),
-    path('getSet/', include('core.urls'))
+    path('word-sets/', include('core.urls'))
 ]

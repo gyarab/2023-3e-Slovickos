@@ -20,5 +20,7 @@ from core import views
 #from core.views import core_views  nwm jak se dela
 
 urlpatterns = [
-    path('', views.show_sets)
+    path('', views.get_user_word_sets),
+    path('new', views.create_word_set),
+    path('', views.get_word_set_detail)
 ]

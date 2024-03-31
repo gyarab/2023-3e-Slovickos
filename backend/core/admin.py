@@ -22,4 +22,4 @@ class UserAdmin(BaseUser):
     )
 
 admin.site.register(models.User,UserAdmin)
-admin.site.register(models.Seznam_slov)
+admin.site.register(models.Word_set)

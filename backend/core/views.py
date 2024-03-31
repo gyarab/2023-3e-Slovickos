@@ -1,21 +1,23 @@
-from django.shortcuts import render
-from .models import Seznam_slov
-from .serializers import Seznam_slov_serializer
+from .models import Word_set
+from .serializers import Word_set_serializer
 from rest_framework.decorators import api_view
 from django.http import JsonResponse
 
-            
-@api_view(['GET', 'POST',])
-def show_sets(request):
-    global user_id
-    if request.method == 'POST':
-        user_id = request.data['userId']
-            # Return the serialized data
-        return JsonResponse("Diky moc Angular bro")
-        # Query the database for objects with id_vlastnik equal to user_id
-    elif request.method == 'GET':
-        queryset = Seznam_slov.objects.filter(id_vlastnik_id=user_id)
-        # Serialize the queryset
-        serializer = Seznam_slov_serializer(queryset, many=True)
-            # For GET requests, you might want to return an empty response or a message
-        return JsonResponse(serializer.data, safe=False)
+@api_view(['POST'])
+def get_user_word_sets(request):
+    user_id = request.data['userId']
+    # Vyfiltruji polozky z DB, kde id_vlastnika se rovna id_usera (globalni promenna)
+    queryset = Word_set.objects.filter(owner_id = user_id)
+    # Serializuji vybrane polozky z DB
+    serializer = Word_set_serializer(queryset, many=True)
+    # Vratim JsonResponse na FE se serializovanymi data z DB
+    return JsonResponse(serializer.data, safe=False)
+
+# Dostanu z FE informace o novem setu a zapisu to do DB
+@api_view(['POST'])
+def create_word_set(request):
+    return JsonResponse("kokot", safe=False)
+
+@api_view(['GET'])
+def get_word_set_detail():
+    return JsonResponse("kokot", safe=False)
