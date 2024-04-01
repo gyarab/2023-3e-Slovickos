@@ -1,9 +1,19 @@
-<ul class="set-list">
-  <li *ngFor="let set of sets" class="set-item">
-    <button class="set-button">
-      <h1>{{ set.name }}</h1>
-      <p>ID: {{ set.id }}</p>
-      <p>ID Vlastnik: {{ set.owner_id }}</p>
+<div class="container">
+  <div class="example-button-container">
+    <button mat-fab color="primary" (click)="newSet()">
+      <mat-icon>library_add</mat-icon>
     </button>
-  </li>
-</ul>
+  </div>
+  <div class="content">
+    <ul class="set-list">
+      <li *ngFor="let set of sets" class="set-item">
+        <button class="set-button">
+          <h1>{{ set.name }}</h1>
+          <p>ID: {{ set.id }}</p>
+          <p>ID Vlastnik: {{ set.owner_id }}</p>
+        </button>
+      </li>
+    </ul>
+  </div>
+</div>
+
