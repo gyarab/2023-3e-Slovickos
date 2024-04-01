@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../word-set.service'; 
 import { Subscription } from 'rxjs';
-import { AuthService } from '../../auth/auth.service';
 import { WordSet } from '../word-set.model';
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-getset',
@@ -15,7 +14,7 @@ export class WordSetListComponent implements OnInit {
   userSub!: Subscription;
 
 
-  constructor(private dataService: DataService) { }
+  constructor(private dataService: DataService, private router: Router) { }
 
   ngOnInit() {
     const userId = this.dataService.getCurrentUserId();
@@ -30,5 +29,8 @@ export class WordSetListComponent implements OnInit {
         }
       );
     }
+  }
+  newSet(){
+    this.router.navigate(['/new'])
   }
 }
