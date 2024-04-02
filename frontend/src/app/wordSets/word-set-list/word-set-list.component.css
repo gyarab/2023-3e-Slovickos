@@ -30,4 +30,24 @@
     background-color: #2F0066; /* Darker blue color on hover */
   }
   
-    
+  .container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .example-button-container {
+    position: fixed;
+    top: 600px;
+    right: 30px;
+    z-index: 999; /* Ensures it stays on top of other content */
+  }
+  
+  .content {
+    flex-grow: 1;
+    overflow-y: auto;
+    margin-top: 60px; /* Adjust as needed to prevent content from being covered by the button */
+  }
+  
+  
+  
+  
