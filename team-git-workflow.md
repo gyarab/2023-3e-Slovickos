@@ -14,3 +14,5 @@ Na každou novou featuru, nebo úkol si vytvoříme novou branch.
 - můžeme pracovat paralelně a neřešit tolik konflikty
 - v mainu je vždy aktuální funkční verze aplikace
 - každý kód uvidí vždy vícero členů týmu, takže budeme mít větší přehled o tom, co se děje (a jak)
+
+kokokokok
