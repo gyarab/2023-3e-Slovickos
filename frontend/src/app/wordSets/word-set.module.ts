@@ -14,6 +14,7 @@ import { WordSetDetailComponent } from './word-set-detail/word-set-detail.compon
     WordSetListComponent,
     NewWordSetComponent,
     WordSetDetailComponent,
+
   ],
   imports: [
     CommonModule,
