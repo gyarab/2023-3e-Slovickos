@@ -7,11 +7,13 @@
   <div class="content">
     <ul class="set-list">
       <li *ngFor="let set of sets" class="set-item">
-        <button class="set-button">
-          <h1>{{ set.name }}</h1>
-          <p>ID: {{ set.id }}</p>
-          <p>ID Vlastnik: {{ set.owner_id }}</p>
-        </button>
+        <a href="/word">
+          <button class="set-button" on>
+            <h1>{{ set.name }}</h1>
+            <p>ID: {{ set.id }}</p>
+            <p>ID Vlastnik: {{ set.owner_id }}</p>
+          </button>
+        </a>
       </li>
     </ul>
   </div>

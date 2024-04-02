@@ -1,0 +1,11 @@
+<div class="container">
+    <div class="content">
+        <ul class="set-list">
+            <li *ngFor="let word of words" class="set-item">
+                <div class="word-base">{{ word.base }}</div>
+                <div class="word-translation">{{ word.translation }}</div>
+                <!--<div class="word-set-id">SET: {{ word.word_set_id }}</div>-->
+            </li>
+        </ul>
+    </div>
+</div>
