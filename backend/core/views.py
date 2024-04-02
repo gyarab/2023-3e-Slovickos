@@ -1,7 +1,7 @@
-from .models import Word_set, Word
-from .serializers import Word_set_serializer, Word_serializer
+from .models import Word_set
+from .serializers import Word_set_serializer
 from rest_framework.decorators import api_view
-from django.http import HttpResponse, JsonResponse
+from django.http import JsonResponse
 
 @api_view(['POST'])
 def get_user_word_sets(request):
@@ -19,14 +19,5 @@ def create_word_set(request):
     return JsonResponse("kokot", safe=False)
 
 @api_view(['GET'])
-def get_word_set_detail(request, id):
-    
-    queryset = Word.objects.filter(word_set_id = id)
-    
-    serializer = Word_serializer(queryset, many=True)
-    
-    return JsonResponse(serializer.data, safe=False)
-    
-    
-
-    
+def get_word_set_detail():
+    return JsonResponse("kokot", safe=False)
