@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { DataService } from '../word-set.service';
-import { Router } from '@angular/router';
+import {  ActivatedRoute, ParamMap } from '@angular/router';
 import { Word } from '../word-set.model';
-import { Subscription } from 'rxjs';
+
 
 @Component({
   selector: 'app-word-set-detail',
@@ -10,15 +10,15 @@ import { Subscription } from 'rxjs';
   styleUrl: './word-set-detail.component.css'
 })
 export class WordSetDetailComponent {
+  setid!: any;
   words: Word[] = [];
-  userSub!: Subscription;
 
-  constructor(private dataService: DataService, private router: Router) { }
-
+  constructor(private dataService: DataService, private route: ActivatedRoute) { }
+  
   ngOnInit() {
-    const userId = this.dataService.getCurrentUserId();
-    if (userId !== null) {
-      this.dataService.getWordSet(userId).subscribe(
+    this.route.paramMap.subscribe( (params: ParamMap) => {
+      this.setid = params.get('setid')
+      this.dataService.getWordSet(this.setid).subscribe(
         (data: Word[]) => {
           this.words = data;
           console.log(this.words);
@@ -27,6 +27,6 @@ export class WordSetDetailComponent {
           console.error('Error:', error);
         }
       );
-    }
+    });
   }
 }
