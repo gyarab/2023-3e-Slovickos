@@ -11,7 +11,7 @@ const routes: Routes = [
   {path: 'auth', component: AuthComponent},
   {path: 'word-sets', component: WordSetListComponent},
   {path: 'new', component: NewWordSetComponent},
-  {path: 'word', component: WordSetDetailComponent},
+  {path: 'word-sets/:setid', component: WordSetDetailComponent},
 ];
 
 @NgModule({
