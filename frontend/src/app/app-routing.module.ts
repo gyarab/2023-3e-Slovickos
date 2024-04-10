@@ -10,7 +10,7 @@ const routes: Routes = [
   {path: 'profile', component: AccountComponent},
   {path: 'auth', component: AuthComponent},
   {path: 'word-sets', component: WordSetListComponent},
-  {path: 'new', component: NewWordSetComponent},
+  {path: 'create-word-set', component: NewWordSetComponent},
   {path: 'word-sets/:setid', component: WordSetDetailComponent},
 ];
 

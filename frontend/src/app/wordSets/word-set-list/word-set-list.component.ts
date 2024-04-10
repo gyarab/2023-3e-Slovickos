@@ -31,7 +31,7 @@ export class WordSetListComponent implements OnInit {
     }
   }
   newSet(){
-    this.router.navigate(['/new'])
+    this.router.navigate(['/create-word-set'])
   }
   nvgWordSetDetail(setId: any){
     
