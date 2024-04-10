@@ -1,4 +1,9 @@
-<h1>User Profile</h1>
-<h4>Name: {{user.name | titlecase }}</h4>
-<h4>Username: {{user.username | titlecase }}</h4>
-<h4>Email: {{user.email}}</h4>
+<div *ngIf="user">
+    <h1>User Profile</h1>
+    <h4>Name: {{ user.name | titlecase }}</h4>
+    <h4>Username: {{ user.username | titlecase }}</h4>
+    <h4 *ngIf="user.email">Email: {{ user.email }}</h4>
+</div>
+<div *ngIf="!user">
+    <h1>KMO nejsi přihlášený.... CO čekáš ty AFFE</h1>
+</div>

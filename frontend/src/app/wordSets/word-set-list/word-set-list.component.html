@@ -7,7 +7,7 @@
   <div class="content">
     <ul class="set-list">
       <li *ngFor="let set of sets" class="set-item">
-        <button class="set-button">
+        <button class="set-button" (click)="nvgWordSetDetail(set.id)">
           <h1>{{ set.name }}</h1>
           <p>ID: {{ set.id }}</p>
           <p>ID Vlastnik: {{ set.owner_id }}</p>

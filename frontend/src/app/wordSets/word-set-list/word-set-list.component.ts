@@ -33,4 +33,11 @@ export class WordSetListComponent implements OnInit {
   newSet(){
     this.router.navigate(['/new'])
   }
+  nvgWordSetDetail(setId: any){
+    
+    console.log(setId)
+    
+    this.router.navigate(['/word-sets/',setId])
+
+  }
 }
