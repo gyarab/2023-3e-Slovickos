@@ -5,7 +5,6 @@ import {  Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { Word } from '../word-set.model';
 import { NewWordComponent } from './new-word/new-word.component';
 
-
 @Component({
   selector: 'app-word-set-detail',
   templateUrl: './word-set-detail.component.html',
@@ -48,7 +47,4 @@ export class WordSetDetailComponent {
     const wordComponentFactory = this.componentFactoryResolver.resolveComponentFactory(NewWordComponent);
     const componentRef = this.wordContainer.createComponent(wordComponentFactory);
   }
-
- 
-  
 }
