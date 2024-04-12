@@ -26,7 +26,6 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
     AuthModule,
     CommonModule,
     WordSetModule,
-    
   ],
   providers: [
     provideClientHydration(),
