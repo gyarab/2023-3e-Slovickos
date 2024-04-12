@@ -12,8 +12,7 @@ import { Router } from '@angular/router';
 export class WordSetListComponent implements OnInit {
   sets: WordSet[] = [];
   userSub!: Subscription;
-
-
+  
   constructor(private dataService: DataService, private router: Router) { }
 
   ngOnInit() {
@@ -31,7 +30,7 @@ export class WordSetListComponent implements OnInit {
     }
   }
   newSet(){
-    this.router.navigate(['/create-word-set'])
+    this.router.navigate(['/new'])
   }
   nvgWordSetDetail(setId: any){
     

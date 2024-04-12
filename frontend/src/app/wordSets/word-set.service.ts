@@ -33,8 +33,7 @@ export class DataService {
   }
 
   createWordSet(set: WordSetData): Observable<any> {
-    console.log(this.baseUrl + 'create-word-set')
-    return this.http.post<WordSetData>(this.baseUrl + 'create-word-set', set);
+    return this.http.post<WordSetData>(this.baseUrl + 'new', set);
   }
 
   getWordSet(setId: number): Observable<any> {
