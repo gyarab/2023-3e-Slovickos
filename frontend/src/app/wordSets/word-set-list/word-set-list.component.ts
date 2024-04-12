@@ -12,8 +12,7 @@ import { Router } from '@angular/router';
 export class WordSetListComponent implements OnInit {
   sets: WordSet[] = [];
   userSub!: Subscription;
-
-
+  
   constructor(private dataService: DataService, private router: Router) { }
 
   ngOnInit() {

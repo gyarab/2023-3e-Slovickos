@@ -14,3 +14,9 @@ export class Word {
         public translation: string
     ){}
 }
+export class WordSetData {
+    constructor(
+    public name: string,
+    public owner_id: number | null,
+    ){}
+}

@@ -1,0 +1,50 @@
+/* Add this to your component's CSS file */
+
+/* Center the form horizontally */
+.row {
+    display: flex;
+    justify-content: center;
+}
+
+/* Style the form container */
+.form-container {
+    margin-top: 50px; /* Adjust the top margin as needed */
+}
+
+/* Style the form inputs */
+.form-group {
+    margin-bottom: 20px; /* Add space between form groups */
+}
+
+/* Style the error messages */
+.help-block {
+    font-size: 14px;
+}
+
+/* Style the buttons */
+.btn-success, .btn-primary {
+    width: 100%; /* Make buttons fill the width */
+}
+
+/* Adjust spacing between buttons */
+button {
+    margin-top: 10px;
+}
+
+/* Add this to your component's CSS file */
+
+/* Style the buttons container */
+.button-container {
+    display: flex;
+    justify-content: space-between; /* Arrange buttons with space between them */
+}
+
+/* Adjust individual button styles as needed */
+.btn-success, .btn-primary {
+    width: 48%; /* Adjust button width */
+}
+
+.background-container {
+    background-color: #0E0066; /* Replace with your desired background color */
+    color: #fff;
+}
