@@ -17,6 +17,6 @@ export class Word {
 export class WordSetData {
     constructor(
     public name: string,
-    public owner_id: number | null
+    public owner_id: number | null,
     ){}
 }

@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { WordSet, WordSetData } from './word-set.model';
+import { Observable, catchError, of } from 'rxjs';
+import { WordSetData } from './word-set.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
   private baseUrl = 'http://127.0.0.1:7000/word-sets/';
+  errorMessage: any;
 
   constructor(private http: HttpClient) { }
 
@@ -32,7 +33,8 @@ export class DataService {
   }
 
   createWordSet(set: WordSetData): Observable<any> {
-    return this.http.post(this.baseUrl + 'create-word-set', { set });
+    console.log(this.baseUrl + 'create-word-set')
+    return this.http.post<WordSetData>(this.baseUrl + 'create-word-set', set);
   }
 
   getWordSet(setId: number): Observable<any> {

@@ -1,0 +1,25 @@
+.container {
+    background-color: #0E0066; /* Change to your desired background color */
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
+
+.content {
+    text-align: center;
+}
+
+.input-container {
+    display: flex;
+    align-items: center;
+    color: #0E0066;
+    margin-top: 20px; /* Optional: Adjust spacing */
+}
+
+.input-container input {
+    margin-right: 10px; /* Optional: Adjust spacing between input and button */
+    
+}

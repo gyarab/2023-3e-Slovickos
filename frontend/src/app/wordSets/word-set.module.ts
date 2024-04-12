@@ -7,6 +7,7 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatButtonModule} from '@angular/material/button';
 import { WordSetDetailComponent } from './word-set-detail/word-set-detail.component';
 import { NewWordComponent } from './word-set-detail/new-word/new-word.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -21,7 +22,8 @@ import { NewWordComponent } from './word-set-detail/new-word/new-word.component'
     CommonModule,
     MatButtonModule,
     MatDividerModule,
-    MatIconModule
+    MatIconModule,
+    ReactiveFormsModule
   ]
 })
 export class WordSetModule { }
