@@ -21,6 +21,6 @@ from core import views
 
 urlpatterns = [
     path('', views.get_user_word_sets),
-    path('create-word-set', views.create_word_set),
+    path('new', views.create_word_set),
     re_path(r'(?P<id>[0-9]+)$', views.get_word_set_detail),
 ]
