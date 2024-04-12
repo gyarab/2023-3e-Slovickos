@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable} from 'rxjs';
-import { WordSetData } from './word-set.model';
+import { Observable } from 'rxjs';
+import { WordSetData, Word } from './word-set.model';
+import { catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +19,16 @@ export class WordSetService {
 
   createWordSet(set: WordSetData): Observable<any> {
     return this.http.post<WordSetData>(this.baseUrl + 'new', set);
+  }
+
+  createWord(wordData: Word): Observable<any> {
+    
+    return this.http.post<Word>(this.baseUrl + 'new-word', wordData)
+      .pipe(
+        catchError(error => {
+          throw 'Error creating new word: ' + error;
+        })
+      );
   }
 
   getWordSet(setId: number): Observable<any> {

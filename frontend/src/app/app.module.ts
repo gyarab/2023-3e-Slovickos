@@ -14,11 +14,13 @@ import { WordSetModule } from './wordSets/word-set.module';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { HomeModule } from './home/home.module';
 
+
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     AccountComponent,
+
   ],
   imports: [
     BrowserModule,

@@ -5,6 +5,7 @@ import { AuthComponent } from './auth/auth.component';
 import { WordSetListComponent } from './wordSets/word-set-list/word-set-list.component';
 import { NewWordSetComponent } from './wordSets/new-word-set/new-word-set.component';
 import { WordSetDetailComponent } from './wordSets/word-set-detail/word-set-detail.component';
+import { NewWordComponent } from './wordSets/word-set-detail/new-word/new-word.component';
 import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [

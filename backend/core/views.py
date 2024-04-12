@@ -1,10 +1,9 @@
+import json
 from datetime import datetime
 from .models import User, Word_set, Word, User_Word_set_mapping
 from .serializers import User_name_serializer, Word_set_serializer, Word_serializer
 from rest_framework.decorators import api_view
 from django.http import JsonResponse
-from django.db.models import Max
-
 
 @api_view(['POST'])
 def get_user_word_sets(request):
@@ -42,6 +41,10 @@ def create_word_set(request):
 
     set_id = word_set.id
     return JsonResponse(set_id, safe=False)
+
+#@api_view(['POST'])
+#def create_word(request):
+#    return JsonResponse("word", safe=False)
 
 @api_view(['GET'])
 def get_word_set_detail(request, id):
@@ -81,3 +84,29 @@ def get_user_suggested_word_sets(request):
         'youngest_word_sets': youngest_sets_serializer.data
     }
     return JsonResponse(response_data, safe=False)
+
+@api_view(['POST'])
+def create_word(request):
+
+    # Parse the JSON data from the request body
+    data = request.data
+    
+    word_set_id = data['word_set_id']
+    base = data['base']
+    translation = data['translation']
+
+    if not word_set_id:
+        raise ValueError("Missing 'word_set_id' in request data")
+    if not base:
+        raise ValueError("Missing 'base' in request data")
+    if not translation:
+        raise ValueError("Missing 'translation' in request data")
+    
+    #relationship pro wordset - nutný
+    wordset = Word_set.objects.get(id=word_set_id) 
+
+    #create a save
+    new_word = Word.objects.create(word_set_id=wordset, base=base, translation=translation)
+    new_word.save()
+
+    return JsonResponse("OK", safe=False)

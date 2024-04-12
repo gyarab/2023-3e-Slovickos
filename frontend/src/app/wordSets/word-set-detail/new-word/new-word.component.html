@@ -1,1 +1,9 @@
-<p>new-word works!</p>
+<form [formGroup]="myForm" (ngSubmit)="handleCreateWord()">
+  <label for="baseInput">Base:</label>
+  <input id="baseInput" type="text" formControlName="base">
+
+  <label for="translationInput">Translation:</label>
+  <input id="translationInput" type="text" formControlName="translation">
+
+  <button type="submit" [disabled]="myForm.invalid">Submit</button>
+</form>

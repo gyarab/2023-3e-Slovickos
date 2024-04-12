@@ -9,7 +9,6 @@ export class WordSet {
 
 export class Word {
     constructor(
-        public id: string,
         public word_set_id: string,
         public base: string,
         public translation: string
