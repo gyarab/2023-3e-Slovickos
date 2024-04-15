@@ -118,23 +118,23 @@ def create_word(request):
 
 @api_view(['DELETE'])
 def delete_word_set(request, setid):
-    # Get the Word Set instance or return 404 if not found
+    # Get Word-set / 404
     word_set = get_object_or_404(Word_set, id=setid)
     
-    # Delete the Word Set
+    # Delete Word Set
     word_set.delete()
     
-    # Respond with a success message or appropriate response
+    # Respond
     return JsonResponse("Set - deleted", safe=False)
 
 @api_view(['DELETE'])
-def delete_word(request, setid):
-    # Get the Word Set instance or return 404 if not found
-    word_set = get_object_or_404(Word_set, id=setid)
+def delete_word(request, wordid):
+    # Get the Word / 404
+    word = get_object_or_404(Word, id=wordid)
     
-    # Delete the Word Set
-    word_set.delete()
+    # Delete Word
+    word.delete()
     
-    # Respond with a success message or appropriate response
-    return JsonResponse("Set - deleted", safe=False)
+    # Respond
+    return JsonResponse("Word - deleted", safe=False)
 
