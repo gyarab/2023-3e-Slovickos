@@ -1,6 +1,7 @@
 
 import { Component, ComponentFactoryResolver, ViewChild, ViewContainerRef } from '@angular/core';
 import { WordSetService } from '../word-set.service';
+import { DataService } from '../../data.service';
 import {  Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { Word } from '../word-set.model';
 import { NewWordComponent } from './new-word/new-word.component';
@@ -14,19 +15,21 @@ export class WordSetDetailComponent {
   setid!: any;
   words: Word[] = [];
 
+  buttonVisible = true;
+
   @ViewChild('wordContainer', { read: ViewContainerRef })
   wordContainer!: ViewContainerRef;
 
 
-  constructor(private dataService: WordSetService, private route: ActivatedRoute, private router: Router, private componentFactoryResolver: ComponentFactoryResolver) { }
+  constructor(private dataService: DataService, private wordSetService: WordSetService, private route: ActivatedRoute, private router: Router, private componentFactoryResolver: ComponentFactoryResolver) { }
   
   ngOnInit() {
       this.route.paramMap.subscribe( (params: ParamMap) => {
       this.setid = params.get('setid')
-      this.dataService.getWordSet(this.setid).subscribe(
+      this.wordSetService.getWordSet(this.setid).subscribe(
         (data: Word[]) => {
           this.words = data;
-          console.log(this.words);
+          console.table(this.words);
         },
         error => {
           console.error('Error:', error);
@@ -39,12 +42,32 @@ export class WordSetDetailComponent {
     this.router.navigate(['/word-sets/new-word'])
   }
 
+  nvgLearning(){
+    this.router.navigate(['/learning/',this.setid])
+  }
+
   addWord() {
-    const buttonElement = document.querySelector('button'); 
-    if (buttonElement) {
-      buttonElement.remove(); 
-    }
+    this.buttonVisible = false;
     const wordComponentFactory = this.componentFactoryResolver.resolveComponentFactory(NewWordComponent);
     const componentRef = this.wordContainer.createComponent(wordComponentFactory);
   }
+
+
+  //POUIT Z NGOONINIT PARAM A ZISKAT SETID NO A PAK NEJAK PREDAT Z HTML ID SLOVICKA TO POSLAT ZE VYMAZAT
+  deleteWord(id: any): void {
+    
+    this.dataService.deleteWordSet(id)
+      .subscribe(
+        response => {
+          console.log('Word Set deleted successfully');
+          // Handle success (e.g., show a success message)
+        },
+        error => {
+          console.error('Error deleting Word Set:', error);
+          // Handle error (e.g., show an error message)
+        }
+      );
+      location.reload()
+  }
+
 }

@@ -1,9 +1,13 @@
-<form [formGroup]="myForm" (ngSubmit)="handleCreateWord()">
-  <label for="baseInput">Base:</label>
-  <input id="baseInput" type="text" formControlName="base">
-
-  <label for="translationInput">Translation:</label>
-  <input id="translationInput" type="text" formControlName="translation">
-
-  <button type="submit" [disabled]="myForm.invalid">Submit</button>
-</form>
+<div class="container">
+  <div class="content">
+    <form [formGroup]="myForm" (ngSubmit)="handleCreateWord()" class="form">
+      <div class="input-row">
+        <label for="baseInput" class="label-base">Base:</label>
+        <input id="baseInput" type="text" formControlName="base" class="input-field">
+        <label for="translationInput" class="label-translation">Translation:</label>
+        <input id="translationInput" type="text" formControlName="translation" class="input-field">
+      </div>
+      <button mat-flat-button color="accent" type="submit" [disabled]="myForm.invalid" class="submit-button">Submit</button>
+    </form>
+  </div>
+</div>

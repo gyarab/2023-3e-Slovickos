@@ -3,7 +3,7 @@ import { DataService } from '../../../data.service';
 import { WordSetService } from '../../word-set.service';
 import {  ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { Word } from '../../word-set.model';
-import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
+import { FormGroup, Validators, FormControl } from '@angular/forms';
 
 
 @Component({

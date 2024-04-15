@@ -6,6 +6,7 @@ import { WordSetListComponent } from './wordSets/word-set-list/word-set-list.com
 import { NewWordSetComponent } from './wordSets/new-word-set/new-word-set.component';
 import { WordSetDetailComponent } from './wordSets/word-set-detail/word-set-detail.component';
 import { NewWordComponent } from './wordSets/word-set-detail/new-word/new-word.component';
+import { LearningComponent } from './learning/learning.component';
 import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
@@ -15,6 +16,8 @@ const routes: Routes = [
   {path: 'word-sets/new', component: NewWordSetComponent},
   {path: 'word-sets/:setid', component: WordSetDetailComponent},
   {path: '', component: HomeComponent},
+  {path: 'new-word', component: NewWordComponent},
+  {path: 'learning/:setid', component: LearningComponent},
 ];
 
 @NgModule({

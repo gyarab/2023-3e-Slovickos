@@ -1,13 +1,20 @@
 <div class="container">
     <div class="content">
+
+        <button class="set-button" (click)="nvgLearning()">
+            <h1>Learn set</h1>
+        </button>
+
         <ul class="set-list">
             <li *ngFor="let word of words" class="set-item">
                 <div class="word-base">{{ word.base }}</div>
                 <div class="word-translation">{{ word.translation }}</div>
+                <!--<button (click)="deleteWord(word.id)">DELETE</button>>
+                -->
             </li>
             <li>
                 <div>
-                    <button (click)="addWord()">Add Word</button>
+                    <button mat-flat-button color="accent" (click)="addWord()" *ngIf="buttonVisible">Add Word</button>
                     <div #wordContainer></div>
                 </div>
             </li>
