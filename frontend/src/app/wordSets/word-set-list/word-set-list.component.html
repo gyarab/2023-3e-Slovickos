@@ -1,6 +1,6 @@
 <div class="container">
   <div class="example-button-container">
-    <button mat-fab color="primary" (click)="newSet()">
+    <button mat-fab color="accent" (click)="newSet()">
       <mat-icon>library_add</mat-icon>
     </button>
   </div>
@@ -9,8 +9,10 @@
       <li *ngFor="let set of sets" class="set-item">
         <div class="set-button" (click)="nvgWordSetDetail(set.id)">
           <h1>{{ set.name }}</h1>
-          <p>Name: </p>
-          <p>Created: </p>
+          <div class="set-details">
+          <p>{{ username }}</p>
+          <p>{{ set.created }}</p>
+          </div>
         </div>
       </li>
     </ul>

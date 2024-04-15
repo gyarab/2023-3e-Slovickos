@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { DataService } from '../word-set.service';
+import { WordSetService } from '../word-set.service';
 import {  ActivatedRoute, ParamMap } from '@angular/router';
 import { Word } from '../word-set.model';
 
@@ -13,7 +13,7 @@ export class WordSetDetailComponent {
   setid!: any;
   words: Word[] = [];
 
-  constructor(private dataService: DataService, private route: ActivatedRoute) { }
+  constructor(private dataService: WordSetService, private route: ActivatedRoute) { }
   
   ngOnInit() {
     this.route.paramMap.subscribe( (params: ParamMap) => {
