@@ -7,7 +7,7 @@ export class WordSet {
     ){}
 }
 
-export class Word {
+export class WordData {
     constructor(
         public word_set_id: string,
         public base: string,
@@ -20,3 +20,13 @@ export class WordSetData {
     public owner_id: number | null,
     ){}
 }
+
+export class Word {
+    constructor(
+        public id: string,
+        public word_set_id: string,
+        public base: string,
+        public translation: string
+    ){}
+}
+

@@ -2,7 +2,7 @@ import { Component, OnInit, model } from '@angular/core';
 import { DataService } from '../../../data.service'; 
 import { WordSetService } from '../../word-set.service';
 import {  ActivatedRoute, ParamMap, Router } from '@angular/router';
-import { Word } from '../../word-set.model';
+import { WordData } from '../../word-set.model';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
 
 
@@ -13,7 +13,7 @@ import { FormGroup, Validators, FormControl } from '@angular/forms';
 })
 export class NewWordComponent implements OnInit {
 
-  newWordVariable!: Word;
+  newWordVariable!: WordData;
   base!: FormControl;
   translation!: FormControl;
   setid!: any;
@@ -42,7 +42,7 @@ export class NewWordComponent implements OnInit {
       // hodnoty z formGroup na POST request Djanga 
       const baseValue = this.myForm.get('base')?.value;
       const translationValue = this.myForm.get('translation')?.value;
-      this.newWordVariable = new Word (this.setid, baseValue, translationValue)
+      this.newWordVariable = new WordData (this.setid, baseValue, translationValue)
     }
       
     this.wordSetService.createWord(this.newWordVariable).subscribe();

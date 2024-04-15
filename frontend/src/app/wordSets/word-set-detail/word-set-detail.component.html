@@ -9,8 +9,7 @@
             <li *ngFor="let word of words" class="set-item">
                 <div class="word-base">{{ word.base }}</div>
                 <div class="word-translation">{{ word.translation }}</div>
-                <!--<button (click)="deleteWord(word.id)">DELETE</button>>
-                -->
+                <button (click)="deleteWord(word.id)">DELETE Word</button>>     
             </li>
             <li>
                 <div>

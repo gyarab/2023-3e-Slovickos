@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from '../wordSets/word-set.service';
+import { WordSetService } from '../wordSets/word-set.service';
 import { ActivatedRoute, ParamMap } from '@angular/router';
-import { Word } from '../wordSets/word-set.model';
+import { WordData } from '../wordSets/word-set.model';
 
 @Component({
   selector: 'app-learning',
@@ -11,19 +11,19 @@ import { Word } from '../wordSets/word-set.model';
 export class LearningComponent implements OnInit {
 
   setid!: any;
-  words: Word[] = [];
+  words: WordData[] = [];
   currentIndex = 0;
   flipped = false;
   imgSrc = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtkL8GlKZ775j3f0VVgS1rU8L2LoX5UEM6fKv_eGLzeza27WYH";
   randomItem: any;
 
-  constructor(private dataService: DataService, private route: ActivatedRoute) {}
+  constructor(private wordSetService: WordSetService, private route: ActivatedRoute) {}
 
   ngOnInit() {
     this.route.paramMap.subscribe((params: ParamMap) => {
       this.setid = params.get('setid');
-      this.dataService.getWordSet(this.setid).subscribe(
-        (data: Word[]) => {
+      this.wordSetService.getWordSet(this.setid).subscribe(
+        (data: WordData[]) => {
           this.words = data;
           console.table(this.words);
           this.resetToBeginning();
@@ -69,5 +69,4 @@ export class LearningComponent implements OnInit {
     this.flipped = false;
   }
 
-  
 }

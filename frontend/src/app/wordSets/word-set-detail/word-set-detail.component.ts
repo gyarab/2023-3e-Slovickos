@@ -2,7 +2,7 @@
 import { Component, ComponentFactoryResolver, ViewChild, ViewContainerRef } from '@angular/core';
 import { WordSetService } from '../word-set.service';
 import { DataService } from '../../data.service';
-import {  Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { Word } from '../word-set.model';
 import { NewWordComponent } from './new-word/new-word.component';
 
@@ -55,16 +55,13 @@ export class WordSetDetailComponent {
 
   //POUIT Z NGOONINIT PARAM A ZISKAT SETID NO A PAK NEJAK PREDAT Z HTML ID SLOVICKA TO POSLAT ZE VYMAZAT
   deleteWord(id: any): void {
-    
-    this.dataService.deleteWordSet(id)
+    this.wordSetService.deleteWord(id)
       .subscribe(
         response => {
-          console.log('Word Set deleted successfully');
-          // Handle success (e.g., show a success message)
+          console.table('Word Set deleted successfully');
         },
         error => {
           console.error('Error deleting Word Set:', error);
-          // Handle error (e.g., show an error message)
         }
       );
       location.reload()

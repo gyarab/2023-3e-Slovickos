@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { WordSetData, Word } from './word-set.model';
+import { WordSetData, WordData } from './word-set.model';
 import { catchError } from 'rxjs/operators';
 
 @Injectable({
@@ -22,9 +22,9 @@ export class WordSetService {
     return this.http.post<WordSetData>(this.baseUrl + 'new', set);
   }
 
-  createWord(wordData: Word): Observable<any> {
+  createWord(wordData: WordData): Observable<any> {
     
-    return this.http.post<Word>(this.baseUrl + 'new-word', wordData)
+    return this.http.post<WordData>(this.baseUrl + 'new-word', wordData)
       .pipe(
         catchError(error => {
           throw 'Error creating new word: ' + error;
@@ -37,14 +37,11 @@ export class WordSetService {
   }
 
   deleteWordSet(setId: number): Observable<any> {
-    return this.http.delete<any>(this.baseUrl + 'delete/' + setId);
+    return this.http.delete<any>(this.baseUrl + 'delete-word-set/' + setId);
   }
 
   //domyslet nebo dodelat smazani slova
-  deleteWord(setId: number): Observable<any> {
-    return this.http.delete<any>(this.baseUrl + 'delete-word-set/' + setId);
+  deleteWord(wordId: number): Observable<any> {
+    return this.http.delete<any>(this.baseUrl + 'delete-word/' + wordId);
   }
-  
-
-  
 }

@@ -52,13 +52,24 @@ export class WordSetListComponent implements OnInit {
           console.error('Error deleting Word Set:', error);
         }
       );
-      //location.reload()
+      location.reload()
+  }
+
+  deleteWord(id: any): void {
+    this.wordSetService.deleteWord(id)
+      .subscribe(
+        response => {
+          console.table('Word Set deleted successfully');
+        },
+        error => {
+          console.error('Error deleting Word Set:', error);
+        }
+      );
+      location.reload()
   }
 
   nvgWordSetDetail(setId: any){
-    
     console.log(setId)
-    
     this.router.navigate(['/word-sets/',setId])
   }
 }
