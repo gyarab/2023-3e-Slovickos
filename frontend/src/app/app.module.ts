@@ -12,6 +12,8 @@ import { provideHttpClient, withFetch } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { WordSetModule } from './wordSets/word-set.module';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { LearningComponent } from './learning/learning.component';
+import { LearningModule } from './learning/learning.module';
 import { HomeModule } from './home/home.module';
 
 
@@ -20,6 +22,7 @@ import { HomeModule } from './home/home.module';
     AppComponent,
     HeaderComponent,
     AccountComponent,
+    LearningComponent,
 
   ],
   imports: [
@@ -29,7 +32,8 @@ import { HomeModule } from './home/home.module';
     AuthModule,
     CommonModule,
     WordSetModule,
-    HomeModule
+    LearningModule,
+    HomeModule,
   ],
   providers: [
     provideClientHydration(),

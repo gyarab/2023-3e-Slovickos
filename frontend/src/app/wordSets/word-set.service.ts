@@ -10,6 +10,7 @@ import { catchError } from 'rxjs/operators';
 export class WordSetService {
   private baseUrl = 'http://127.0.0.1:7000/word-sets/';
   errorMessage: any;
+  paramMap: any;
 
   constructor(private http: HttpClient) { }
 
@@ -34,5 +35,16 @@ export class WordSetService {
   getWordSet(setId: number): Observable<any> {
     return this.http.get(this.baseUrl + setId);
   }
+
+  deleteWordSet(setId: number): Observable<any> {
+    return this.http.delete<any>(this.baseUrl + 'delete/' + setId);
+  }
+
+  //domyslet nebo dodelat smazani slova
+  deleteWord(setId: number): Observable<any> {
+    return this.http.delete<any>(this.baseUrl + 'delete-word-set/' + setId);
+  }
+  
+
   
 }

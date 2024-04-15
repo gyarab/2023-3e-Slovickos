@@ -37,14 +37,28 @@ export class WordSetListComponent implements OnInit {
       );
     }
   }
+
   newSet(){
     this.router.navigate(['/word-sets/new'])
   }
+
+  deleteWordSet(id: any): void {
+    this.wordSetService.deleteWordSet(id)
+      .subscribe(
+        response => {
+          console.table('Word Set deleted successfully');
+        },
+        error => {
+          console.error('Error deleting Word Set:', error);
+        }
+      );
+      //location.reload()
+  }
+
   nvgWordSetDetail(setId: any){
     
     console.log(setId)
     
     this.router.navigate(['/word-sets/',setId])
-
   }
 }

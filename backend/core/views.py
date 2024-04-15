@@ -1,5 +1,8 @@
 import json
 from datetime import datetime
+from random import randint
+
+from django.shortcuts import get_object_or_404
 from .models import User, Word_set, Word, User_Word_set_mapping
 from .serializers import User_name_serializer, Word_set_serializer, Word_serializer
 from rest_framework.decorators import api_view
@@ -29,6 +32,7 @@ def create_word_set(request):
     # Dam data z FE do formatu ve kterem s nimi muzu pracovat
     new_word_set = request.data
     name = new_word_set['name']
+    #description = new_word_set['description']
     owner_id = new_word_set['owner_id']
     # Musim udelat cely object Usera abych ho mohl pouzit jako ForeignKey
     owner = User.objects.get(id=owner_id)
@@ -110,3 +114,27 @@ def create_word(request):
     new_word.save()
 
     return JsonResponse("OK", safe=False)
+
+
+@api_view(['DELETE'])
+def delete_word_set(request, setid):
+    # Get the Word Set instance or return 404 if not found
+    word_set = get_object_or_404(Word_set, id=setid)
+    
+    # Delete the Word Set
+    word_set.delete()
+    
+    # Respond with a success message or appropriate response
+    return JsonResponse("Set - deleted", safe=False)
+
+@api_view(['DELETE'])
+def delete_word(request, setid):
+    # Get the Word Set instance or return 404 if not found
+    word_set = get_object_or_404(Word_set, id=setid)
+    
+    # Delete the Word Set
+    word_set.delete()
+    
+    # Respond with a success message or appropriate response
+    return JsonResponse("Set - deleted", safe=False)
+

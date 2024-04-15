@@ -50,12 +50,14 @@ class User_group(models.Model):
 class Folder(models.Model):
     id = models.AutoField(unique=True, primary_key=True)
     name = models.CharField(max_length=50)
+    #description = models.TextField(blank=True)
     group_id = models.ForeignKey(User_group, on_delete=models.CASCADE, default=None)
     owner_id = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
 
 class Word_set(models.Model):
     id = models.AutoField(unique=True, primary_key=True)
     name = models.CharField(max_length=50)
+    #description = models.TextField(blank=True)
     owner_id = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
     created = models.DateField()
 
