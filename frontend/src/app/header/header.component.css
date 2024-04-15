@@ -1,22 +1,20 @@
 .navbar-nav .nav-link {
-    color: #ffffff; /* Change to your desired text color */
+    color: #ffffff; 
 }
 
 .navbar-toggler-icon {
-    background-color: #ffffff; /* Change to your desired color for the toggler icon */
+    color: #ffffff; 
 }
 
 #logo:hover {
-    transform: scale(1.1); /* Scale the image on hover */
-    transition: transform 0.3s ease; /* Smooth transition */
+    transform: scale(1.1); 
+    transition: transform 0.3s ease; 
 }
 
-/* Hover effect for links */
 .navbar-nav .nav-link:hover {
-    color: #d19557; /* Change text color on hover */
+    color: #ddb176; 
 }
 
-/* Hover effect for buttons */
 .navbar-toggler:hover {
-    background-color: rgba(255, 255, 255, 0.1); /* Change background color on hover */
+    background-color: rgba(255, 255, 255, 0.1);
 }
