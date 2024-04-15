@@ -1,3 +1,4 @@
+from datetime import datetime
 from django.db import models
 from django.contrib.auth.models import BaseUserManager, AbstractBaseUser, PermissionsMixin
 
@@ -56,6 +57,7 @@ class Word_set(models.Model):
     id = models.AutoField(unique=True, primary_key=True)
     name = models.CharField(max_length=50)
     owner_id = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
+    created = models.DateField()
 
 class Word(models.Model):
     id = models.AutoField(unique=True, primary_key=True)
@@ -72,7 +74,7 @@ class User_Word_set_mapping(models.Model):
     user_id = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
     word_set_id = models.ForeignKey(Word_set, on_delete=models.CASCADE, default=None)
     has_access = models.BooleanField(default=False)
-    last_view = models.DateField()
+    last_view = models.DateTimeField()
 
 class User_group_Word_set_mapping(models.Model):
     group_id = models.ForeignKey(User_group, on_delete=models.CASCADE, default=None)

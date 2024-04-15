@@ -1,18 +1,27 @@
 from datetime import datetime
 from .models import User, Word_set, Word, User_Word_set_mapping
-from .serializers import Word_set_serializer, Word_serializer
+from .serializers import User_name_serializer, Word_set_serializer, Word_serializer
 from rest_framework.decorators import api_view
 from django.http import JsonResponse
+from django.db.models import Max
+
 
 @api_view(['POST'])
 def get_user_word_sets(request):
     user_id = request.data['userId']
-    # Vyfiltruji polozky z DB, kde id_vlastnika se rovna id_usera (globalni promenna)
-    queryset = Word_set.objects.filter(owner_id = user_id)
+    # Ziskam jmeno zakladatele setu
+    user_name = User.objects.filter(id=user_id).values('name')
+    user_name_serializer = User_name_serializer(user_name, many=True)
+
+    word_set = Word_set.objects.filter(owner_id = user_id)
     # Serializuji vybrane polozky z DB
-    serializer = Word_set_serializer(queryset, many=True)
+    word_set_serializer = Word_set_serializer(word_set, many=True)
     # Vratim JsonResponse na FE se serializovanymi data z DB
-    return JsonResponse(serializer.data, safe=False)
+    response_data = {
+            'username': user_name_serializer.data,
+            'word_sets': word_set_serializer.data,
+        }
+    return JsonResponse(response_data, safe=False)
 
 # Dostanu z FE informace o novem setu a zapisu to do DB
 @api_view(['POST'])
@@ -42,3 +51,33 @@ def get_word_set_detail(request, id):
     serializer = Word_serializer(queryset, many=True)
 
     return JsonResponse(serializer.data, safe=False)
+
+@api_view(['POST'])
+def get_user_suggested_word_sets(request):
+    user_id = request.data['userId']
+    # Ziskam jmeno zakladatele setu
+    user_name = User.objects.filter(id=user_id).values('name')
+    user_name_serializer = User_name_serializer(user_name, many=True)
+
+    # Ziskam sety, na ktere se uzivatel dival pred nejdelsi dobou 
+    # Ziskam id 4 setu, ktere byly navstiveny pred nejdelsi dobou
+    oldest_set_ids = User_Word_set_mapping.objects.filter(user_id=user_id).order_by('last_view').values_list('word_set_id', flat=True)[:4]
+    oldest_set_ids_list = list(oldest_set_ids)
+    # Podle id setu ziskam potrebne sety (musim porovnavat list idecek - oldest_set_ids_list)
+    word_sets = Word_set.objects.filter(id__in=oldest_set_ids_list)
+    oldest_sets_serializer = Word_set_serializer(word_sets, many=True)
+
+    # Ziskam sety, na ktere se uzivatel dival nedavno 
+    # Ziskam id 4 setu, ktere byly navstiveny nedavno
+    youngest_set_ids = User_Word_set_mapping.objects.filter(user_id=user_id).order_by('-last_view').values_list('word_set_id', flat=True)[:4]
+    youngest_set_ids_list = list(youngest_set_ids)
+    # Podle id setu ziskam potrebne sety (musim porovnavat list idecek - youngest_set_ids_list)
+    word_sets = Word_set.objects.filter(id__in=youngest_set_ids_list)
+    youngest_sets_serializer = Word_set_serializer(word_sets, many=True)
+
+    response_data = {
+        'username': user_name_serializer.data,
+        'oldest_word_sets': oldest_sets_serializer.data,
+        'youngest_word_sets': youngest_sets_serializer.data
+    }
+    return JsonResponse(response_data, safe=False)
