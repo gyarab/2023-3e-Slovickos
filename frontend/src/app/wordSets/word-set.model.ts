@@ -2,7 +2,8 @@ export class WordSet {
     constructor(
         public id: string,
         public name: string,
-        public owner_id: string
+        public owner_id: string,
+        public created: Date,
     ){}
 }
 

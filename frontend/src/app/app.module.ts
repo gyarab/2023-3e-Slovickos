@@ -12,6 +12,7 @@ import { provideHttpClient, withFetch } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { WordSetModule } from './wordSets/word-set.module';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { HomeModule } from './home/home.module';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
     AuthModule,
     CommonModule,
     WordSetModule,
+    HomeModule
   ],
   providers: [
     provideClientHydration(),

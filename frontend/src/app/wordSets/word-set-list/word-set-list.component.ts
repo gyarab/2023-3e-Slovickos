@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { DataService } from '../word-set.service'; 
+import { Component, OnInit } from '@angular/core'; 
 import { Subscription } from 'rxjs';
 import { WordSet } from '../word-set.model';
 import { Router } from '@angular/router';
+import { DataService } from '../../data.service';
+import { WordSetService } from '../word-set.service';
 
 @Component({
   selector: 'app-getset',
@@ -11,16 +12,23 @@ import { Router } from '@angular/router';
 })
 export class WordSetListComponent implements OnInit {
   sets: WordSet[] = [];
+  username: string = '';
   userSub!: Subscription;
   
-  constructor(private dataService: DataService, private router: Router) { }
+  constructor(
+    private dataService: DataService, 
+    private wordSetService: WordSetService, 
+    private router: Router
+  ) { }
 
   ngOnInit() {
     const userId = this.dataService.getCurrentUserId();
     if (userId !== null) {
-      this.dataService.getUserSets(userId).subscribe(
-        (data: WordSet[]) => {
-          this.sets = data;
+      this.wordSetService.getUserSets(userId).subscribe(
+        (data) => {
+          this.username = data.username[0].name;
+          this.sets = data.word_sets;
+          console.log(this.username);
           console.log(this.sets);
         },
         error => {
@@ -30,7 +38,7 @@ export class WordSetListComponent implements OnInit {
     }
   }
   newSet(){
-    this.router.navigate(['/new'])
+    this.router.navigate(['/word-sets/new'])
   }
   nvgWordSetDetail(setId: any){
     

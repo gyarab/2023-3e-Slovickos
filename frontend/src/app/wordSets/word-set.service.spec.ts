@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { DataService } from './word-set.service';
+import { WordSetService } from './word-set.service';
 
 describe('GetsetService', () => {
-  let service: DataService;
+  let service: WordSetService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(DataService);
+    service = TestBed.inject(WordSetService);
   });
 
   it('should be created', () => {
