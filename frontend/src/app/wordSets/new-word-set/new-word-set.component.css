@@ -1,5 +1,5 @@
 .container {
-    background-color: #0E0066; /* Change to your desired background color */
+    background-color: #015784; /* Change to your desired background color */
     color: #fff;
     display: flex;
     justify-content: center;
@@ -22,4 +22,14 @@
 .input-container input {
     margin-right: 10px; /* Optional: Adjust spacing between input and button */
     
+}
+
+.add-btn {
+    background-color: #d19557;
+    color: #000e1f; /* Text color */
+  transition: transform 0.3s ease;
+}
+
+.add-btn:hover{
+    transform: scale(1.3);
 }

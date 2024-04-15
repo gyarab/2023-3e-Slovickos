@@ -3,7 +3,7 @@
         <h1>Create New Set</h1>
         <div class="input-container">
             <input type="text" [formControl]="name" class="form-control" placeholder="Set Name" (keyup.enter)="handleCreateSet()" />
-            <button mat-fab color="accent" (click)="handleCreateSet()">
+            <button mat-fab class="add-btn" (click)="handleCreateSet()">
                 <mat-icon>add</mat-icon>
             </button>
         </div>
