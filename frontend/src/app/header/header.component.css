@@ -5,3 +5,18 @@
 .navbar-toggler-icon {
     background-color: #ffffff; /* Change to your desired color for the toggler icon */
 }
+
+#logo:hover {
+    transform: scale(1.1); /* Scale the image on hover */
+    transition: transform 0.3s ease; /* Smooth transition */
+}
+
+/* Hover effect for links */
+.navbar-nav .nav-link:hover {
+    color: #d19557; /* Change text color on hover */
+}
+
+/* Hover effect for buttons */
+.navbar-toggler:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Change background color on hover */
+}
