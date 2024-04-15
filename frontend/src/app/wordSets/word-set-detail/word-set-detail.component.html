@@ -1,23 +1,25 @@
-<div class="container">
+<div class="container-wide">
     <div class="content">
-
         <button class="set-button" (click)="nvgLearning()">
             <h1>Learn set</h1>
         </button>
 
         <ul class="set-list">
             <li *ngFor="let word of words" class="set-item">
-                <div class="word-base">{{ word.base }}</div>
-                <div class="word-translation">{{ word.translation }}</div>
-                <button (click)="deleteWord(word.id)">DELETE Word</button>>     
+                <div class="word">
+                    <div class="word-base">{{ word.base }}</div>
+                    <div class="word-translation">{{ word.translation }}</div>
+                </div>
+                <button mat-fab class="delete-button" (click)="deleteWord(word.id)">
+                    <mat-icon>close</mat-icon>
+                </button>
             </li>
             <li>
                 <div>
-                    <button mat-flat-button color="accent" (click)="addWord()" *ngIf="buttonVisible">Add Word</button>
+                    <button mat-flat-button class="add-word-button" (click)="addWord()" *ngIf="buttonVisible">Add Word</button>
                     <div #wordContainer></div>
                 </div>
             </li>
         </ul>
     </div>
 </div>
-

@@ -1,10 +1,13 @@
-.container {
-    display: flex;
-    justify-content: center;
+.container-wide {
+    max-width: 1200px; /* Adjust width as needed */
+    width: 100%; /* Make sure it fills the available space */
+    margin: 0 auto;
+    padding: 20px;
 }
 
 .content {
-    width: 80%; /* Adjust the width as needed */
+    overflow-x: auto;
+    white-space: nowrap;
 }
 
 .set-list {
@@ -15,20 +18,72 @@
 .set-item {
     display: flex;
     justify-content: space-between;
-    border-bottom: 1px solid #ccc; /* Add a border between list items */
-    padding: 10px 0;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ccc; /* Add border bottom to create lines between word rows */
 }
 
-.word-base,
-.word-translation,
-.word-set-id {
-    flex: 1; /* Equal width for all divs within set-item */
+.set-button {
+    width: 100%; /* Adjust width to fill the container */
+    height: 75px;
+    background-color: #000e1f;
+    color: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.set-button:hover {
+    background-color: #1f3140;
+}
+
+.set-button h1 {
+    margin: 0;
+    font-size: 25px;
+}
+
+.word {
+    display: flex;
+    align-items: center; /* Align items vertically */
+    width: 100%;
 }
 
 .word-base {
-    text-align: left;
+    flex-grow: 1; /* Base takes up remaining space */
+    font-size: 18px;
+    color: #fff;
 }
 
 .word-translation {
-    text-align: right;
+    margin-left: auto; /* Move translation to the end of the row */
+    margin-right: 10px; /* Add small space between delete button and translation */
+    font-size: 18px; /* Adjust font size as needed */
+    color: #fff;
+}
+
+.delete-button {
+    background: none;
+    width: 30px;
+    height: 30px;
+    margin-left: 10px; /* Add small space between translation and delete button */
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    box-shadow: none; /* Remove shadow from delete button */
+}
+
+.delete-button .mat-icon {
+    color: #ff0000; /* Change to your desired icon color */
+}
+
+.mat-mdc-unelevated-button:not(:disabled) {
+    margin-top: 10px; /* Adjust the margin-top value as needed */
+    background-color: #d19557;
+    border-radius: 100px;
+    color: #000e1f;
+}
+
+.mat-mdc-unelevated-button:hover{
+    background-color: #f0ddb7;
 }
