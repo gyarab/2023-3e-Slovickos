@@ -3,6 +3,7 @@ import { AbstractControl, FormControl, FormGroup, ValidationErrors, ValidatorFn,
 import { AuthService } from './auth.service';
 import { AuthResData } from './auth.model';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-auth',
@@ -10,14 +11,18 @@ import { Router } from '@angular/router';
   styleUrl: './auth.component.css'
 })
 export class AuthComponent implements OnInit{
-  isLoginMode = true;
+  showLoginForm: boolean = false;
   signupForm: FormGroup = new FormGroup({});
   loginForm: FormGroup = new FormGroup({});
   token!: string;
   error: string = "";
   success: string = "";
 
-  constructor(private authService: AuthService, private router: Router) {
+  constructor(
+    private authService: AuthService, 
+    private router: Router,
+    private snackBar: MatSnackBar,
+  ) {
 
   }
 
@@ -37,9 +42,6 @@ export class AuthComponent implements OnInit{
     })
   }
 
-  onSwitch(){
-    this.isLoginMode = !this.isLoginMode;
-  }
   onSignup(){
     console.log(this.signupForm)
     this.authService.signup({
@@ -50,14 +52,19 @@ export class AuthComponent implements OnInit{
     })
     .subscribe(
       (data: AuthResData) => {
-        this.isLoginMode = true;
+        this.showLoginForm = true;
         this.success = 'Signup was successfull'
         this.error = "";
+        this.signupForm.reset();
       },(errorRes) => {
         this.error = errorRes;
       }
     )
+    this.snackBar.open('Signup successful!', 'Close', {
+      duration: 3000 // Duration in milliseconds
+    });
   }
+  
   onLogin(){
     this.authService.login(this.loginForm.value)
     .subscribe(
