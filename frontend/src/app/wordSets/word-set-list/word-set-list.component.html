@@ -8,7 +8,9 @@
     <ul class="set-list">
       <li *ngFor="let set of sets" class="set-item">
         <div class="set-button" (click)="nvgWordSetDetail(set.id)">
-          <h1>{{ set.name }}</h1>
+          <div class="name-content">
+            <h1>{{ set.name }}</h1>
+          </div>
           <div class="set-details">
             <p>{{ username }}</p>
             <p>{{ set.created }}</p>

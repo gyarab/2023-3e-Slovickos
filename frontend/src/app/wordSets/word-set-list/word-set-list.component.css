@@ -5,10 +5,12 @@
   
 .set-item {
   display: flex;
+  flex-direction: column; /* Change flex direction to column */
   justify-content: space-between;
   align-items: center;
   padding: 10px;
   position: relative;
+  border-bottom: 1px solid #ccc; /* Add a bottom border */
 }
 .set-item h1 {
   font-size: 25px;

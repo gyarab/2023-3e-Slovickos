@@ -18,10 +18,12 @@ export class NewWordComponent implements OnInit {
   translation!: FormControl;
   setid!: any;
   myForm: FormGroup = new FormGroup({})
-  constructor( private dataService: DataService,
-     private  wordSetService: WordSetService,
-     private route: ActivatedRoute,
-      private router: Router) {}
+  constructor(
+    private dataService: DataService,
+    private  wordSetService: WordSetService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {}
   
   
   ngOnInit() {
