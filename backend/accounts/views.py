@@ -1,8 +1,11 @@
 from rest_framework import generics
-from .serializers import UserSerializer,AuthTokenSerializer
+from .serializers import UserDataSerializer, UserSerializer,AuthTokenSerializer
 from rest_framework.authtoken.views import ObtainAuthToken
 from rest_framework.authtoken.models import Token
 from rest_framework.response import Response
+from django.http import JsonResponse
+from rest_framework.decorators import api_view
+from  core.models import User, Word_set, Word, User_Word_set_mapping
 
 from accounts import serializers
 
@@ -25,3 +28,44 @@ class LoginView(ObtainAuthToken):
             'email': user.email,
             'name': user.name
         })
+
+@api_view(['POST'])
+def update_name(request):
+    user_id = request.data['id']
+    name = request.data['name']
+
+    user = User.objects.filter(id=user_id).update(name=name)
+    updated_user = User.objects.filter(id=user_id)
+    user_serializer = UserDataSerializer(updated_user, many=True)
+    return JsonResponse(user_serializer.data, safe=False)
+
+@api_view(['POST'])
+def update_user_name(request):
+    user_id = request.data['id']
+    username = request.data['username']
+
+    user = User.objects.filter(id=user_id).update(username=username)
+    updated_user = User.objects.filter(id=user_id)
+    user_serializer = UserDataSerializer(updated_user, many=True)
+    return JsonResponse(user_serializer.data, safe=False)
+
+@api_view(['POST'])
+def update_email(request):
+    user_id = request.data['id']
+    email = request.data['email']
+
+    user = User.objects.filter(id=user_id).update(email=email)
+    updated_user = User.objects.filter(id=user_id)
+    user_serializer = UserDataSerializer(updated_user, many=True)
+    return JsonResponse(user_serializer.data, safe=False)
+
+# DODELAT HASHOVANI HESLA !!!!!!!!!!!!!!!!!!!
+@api_view(['POST'])
+def update_password(request):
+    user_id = request.data['id']
+    password = request.data['password']
+
+    user = User.objects.filter(id=user_id).set_password(password)
+    
+    user.save()
+    return JsonResponse("kokotpero", safe=False)
