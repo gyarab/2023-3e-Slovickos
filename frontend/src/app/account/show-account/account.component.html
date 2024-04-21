@@ -5,4 +5,9 @@
         <h4><span class="detail-label">Username:</span> {{ user.username | titlecase }}</h4>
         <h4 *ngIf="user.email"><span class="detail-label">Email:</span> {{ user.email }}</h4>
     </div>
+    <div class="update-button">
+        <button (click)="nvgProfileUpdate()">
+            <mat-icon>edit</mat-icon>
+        </button>
+    </div>
 </div>
