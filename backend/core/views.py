@@ -1,7 +1,5 @@
-import json
 from datetime import datetime
 from random import randint
-
 from django.shortcuts import get_object_or_404
 from .models import User, Word_set, Word, User_Word_set_mapping
 from .serializers import User_name_serializer, Word_set_serializer, Word_serializer

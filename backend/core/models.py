@@ -64,8 +64,8 @@ class Word_set(models.Model):
 class Word(models.Model):
     id = models.AutoField(unique=True, primary_key=True)
     word_set_id = models.ForeignKey(Word_set, on_delete=models.CASCADE, default=None)
-    base = models.CharField(max_length=100)
-    translation = models.CharField(max_length=100)
+    base = models.CharField(max_length=1000)
+    translation = models.CharField(max_length=1000)
 
 class User_User_group_mapping(models.Model):
     user_id = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
