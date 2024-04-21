@@ -136,3 +136,7 @@
 .mdc-button:hover {
   background-color: #f0ddb7;
 }
+
+.button-get-started {
+  margin-top: 40px;
+}
