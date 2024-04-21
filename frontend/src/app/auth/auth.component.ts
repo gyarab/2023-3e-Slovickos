@@ -22,9 +22,7 @@ export class AuthComponent implements OnInit{
     private authService: AuthService, 
     private router: Router,
     private snackBar: MatSnackBar,
-  ) {
-
-  }
+  ) {}
 
   ngOnInit(): void {
     this.signupForm = new FormGroup({
