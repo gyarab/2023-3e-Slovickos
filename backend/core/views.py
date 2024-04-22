@@ -136,3 +136,19 @@ def delete_word(request, wordid):
     # Respond
     return JsonResponse("Word - deleted", safe=False)
 
+@api_view(['POST'])
+def update_wordset(request):
+    word_set_id = request.data['id']
+    name = request.data['name']
+
+    word_set = Word_set.objects.filter(id=word_set_id)
+    word_set.update(name=name)
+    return JsonResponse("Kokot", safe=False)
+
+@api_view(['POST'])
+def update_word_base(request):
+    return JsonResponse("Kokot", safe=False)
+
+@api_view(['POST'])
+def update_word_transalation(request):
+    return JsonResponse("Kokot", safe=False)
