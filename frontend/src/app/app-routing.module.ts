@@ -9,7 +9,6 @@ import { NewWordComponent } from './wordSets/word-set-detail/new-word/new-word.c
 import { LearningComponent } from './learning/learning.component';
 import { HomeComponent } from './home/home.component';
 import { UpdateAccountComponent } from './account/update-account/update-account.component';
-import { UpdateWordsetComponent } from './wordSets/update-wordset/update-wordset.component';
 
 const routes: Routes = [
   {path: 'profile', component: AccountComponent},
