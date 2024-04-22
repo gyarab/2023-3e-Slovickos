@@ -59,13 +59,13 @@ def update_email(request):
     user_serializer = UserDataSerializer(updated_user, many=True)
     return JsonResponse(user_serializer.data, safe=False)
 
-# DODELAT HASHOVANI HESLA !!!!!!!!!!!!!!!!!!!
+
 @api_view(['POST'])
 def update_password(request):
     user_id = request.data['id']
     password = request.data['password']
 
-    user = User.objects.filter(id=user_id).set_password(password)
-    
+    user = User.objects.get(id=user_id)
+    user.set_password(password)
     user.save()
     return JsonResponse("kokotpero", safe=False)
