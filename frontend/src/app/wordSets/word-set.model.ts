@@ -30,3 +30,11 @@ export class Word {
     ){}
 }
 
+export const NameValid = /^[a-zA-Z0-9_/.\-, ]*$/;
+
+export class WordSetNameData {
+    constructor(
+        public id: string | undefined,
+        public name: string
+    ){}
+}

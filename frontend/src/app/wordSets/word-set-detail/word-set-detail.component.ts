@@ -21,7 +21,13 @@ export class WordSetDetailComponent {
   wordContainer!: ViewContainerRef;
 
 
-  constructor(private dataService: DataService, private wordSetService: WordSetService, private route: ActivatedRoute, private router: Router, private componentFactoryResolver: ComponentFactoryResolver) { }
+  constructor(
+    private dataService: DataService, 
+    private wordSetService: WordSetService, 
+    private route: ActivatedRoute, 
+    private router: Router, 
+    private componentFactoryResolver: ComponentFactoryResolver
+  ) { }
   
   ngOnInit() {
       this.route.paramMap.subscribe( (params: ParamMap) => {
@@ -38,9 +44,9 @@ export class WordSetDetailComponent {
     });
   }
 
-  nvgNewWord(){
-    this.router.navigate(['/word-sets/new-word'])
-  }
+  //nvgNewWord(){
+    //this.router.navigate(['/word-sets/new-word'])
+  //}
 
   nvgLearning(){
     this.router.navigate(['/learning/',this.setid])
