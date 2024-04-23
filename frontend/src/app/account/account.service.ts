@@ -14,18 +14,18 @@ export class AccountService {
   constructor(private http: HttpClient) { }
 
   updateName(newName: NewName): Observable<any> {
-    return this.http.post(this.baseUrl + 'update-name', newName)
+    return this.http.put(this.baseUrl + 'update-name', newName)
   }
 
   updateUserName(newUserName: NewUserName): Observable<any> {
-    return this.http.post(this.baseUrl + 'update-username', newUserName)
+    return this.http.put(this.baseUrl + 'update-username', newUserName)
   }
 
   updateEmail(newEmail: NewEmail): Observable<any> {
-    return this.http.post(this.baseUrl + 'update-email', newEmail)
+    return this.http.put(this.baseUrl + 'update-email', newEmail)
   }
 
   updatePassword(newPassword: NewPassword): Observable<any> {
-    return this.http.post(this.baseUrl + 'update-password', newPassword)
+    return this.http.put(this.baseUrl + 'update-password', newPassword)
   }
 }
