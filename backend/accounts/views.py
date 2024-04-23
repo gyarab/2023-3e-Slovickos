@@ -29,7 +29,7 @@ class LoginView(ObtainAuthToken):
             'name': user.name
         })
 
-@api_view(['POST'])
+@api_view(['PUT'])
 def update_name(request):
     user_id = request.data['id']
     name = request.data['name']
@@ -39,7 +39,7 @@ def update_name(request):
     user_serializer = UserDataSerializer(updated_user, many=True)
     return JsonResponse(user_serializer.data, safe=False)
 
-@api_view(['POST'])
+@api_view(['PUT'])
 def update_user_name(request):
     user_id = request.data['id']
     username = request.data['username']
@@ -49,7 +49,7 @@ def update_user_name(request):
     user_serializer = UserDataSerializer(updated_user, many=True)
     return JsonResponse(user_serializer.data, safe=False)
 
-@api_view(['POST'])
+@api_view(['PUT'])
 def update_email(request):
     user_id = request.data['id']
     email = request.data['email']
@@ -60,7 +60,7 @@ def update_email(request):
     return JsonResponse(user_serializer.data, safe=False)
 
 
-@api_view(['POST'])
+@api_view(['PUT'])
 def update_password(request):
     user_id = request.data['id']
     password = request.data['password']
