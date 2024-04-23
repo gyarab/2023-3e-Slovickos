@@ -45,6 +45,6 @@ export class WordSetService {
   }
 
   updateWordSet(wordSetNameData: WordSetNameData) {
-    return this.http.post(this.baseUrl + 'update', wordSetNameData);
+    return this.http.put(this.baseUrl + 'update', wordSetNameData);
   }
 }
