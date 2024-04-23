@@ -5,6 +5,7 @@ import { DataService } from '../../data.service';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { Word } from '../word-set.model';
 import { NewWordComponent } from './new-word/new-word.component';
+import { UpdateWordComponent } from './update-word/update-word.component';
 
 @Component({
   selector: 'app-word-set-detail',
@@ -16,9 +17,13 @@ export class WordSetDetailComponent {
   words: Word[] = [];
 
   buttonVisible = true;
+  updateButtonVisible = true;
+  buttonVisibleMap: { [key: string]: boolean } = {};
 
   @ViewChild('wordContainer', { read: ViewContainerRef })
   wordContainer!: ViewContainerRef;
+  @ViewChild('wordContainer', { read: ViewContainerRef })
+  wordUpdateContainer!: ViewContainerRef;
 
 
   constructor(
@@ -35,6 +40,7 @@ export class WordSetDetailComponent {
       this.wordSetService.getWordSet(this.setid).subscribe(
         (data: Word[]) => {
           this.words = data;
+          this.words.forEach(word => this.buttonVisibleMap[word.id] = true);
           console.table(this.words);
         },
         error => {
@@ -58,7 +64,11 @@ export class WordSetDetailComponent {
     const componentRef = this.wordContainer.createComponent(wordComponentFactory);
   }
 
-
+  updateWord() {
+    this.buttonVisible = false;
+    const wordComponentFactory = this.componentFactoryResolver.resolveComponentFactory(UpdateWordComponent);
+    const componentRef = this.wordUpdateContainer.createComponent(wordComponentFactory);
+  }
   //POUIT Z NGOONINIT PARAM A ZISKAT SETID NO A PAK NEJAK PREDAT Z HTML ID SLOVICKA TO POSLAT ZE VYMAZAT
   deleteWord(id: any): void {
     this.wordSetService.deleteWord(id)
