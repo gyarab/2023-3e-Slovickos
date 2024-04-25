@@ -42,7 +42,7 @@ def create_word_set(request):
     time_made.save()
 
     set_id = word_set.id
-    return JsonResponse(set_id, safe=False)
+    return JsonResponse(set_id, status=200)
 
 #@api_view(['POST'])
 #def create_word(request):
@@ -85,7 +85,7 @@ def get_user_suggested_word_sets(request):
         'oldest_word_sets': oldest_sets_serializer.data,
         'youngest_word_sets': youngest_sets_serializer.data
     }
-    return JsonResponse(response_data, safe=False)
+    return JsonResponse(response_data, status=200)
 
 @api_view(['POST'])
 def create_word(request):
@@ -111,7 +111,7 @@ def create_word(request):
     new_word = Word.objects.create(word_set_id=wordset, base=base, translation=translation)
     new_word.save()
 
-    return JsonResponse("OK", safe=False)
+    return JsonResponse(status=200, safe=False)
 
 
 @api_view(['DELETE'])
@@ -123,7 +123,7 @@ def delete_word_set(request, setid):
     word_set.delete()
     
     # Respond
-    return JsonResponse("Set - deleted", safe=False)
+    return JsonResponse(status=200, safe=False)
 
 @api_view(['DELETE'])
 def delete_word(request, wordid):
@@ -134,7 +134,7 @@ def delete_word(request, wordid):
     word.delete()
     
     # Respond
-    return JsonResponse("Word - deleted", safe=False)
+    return JsonResponse(status=200, safe=False)
 
 @api_view(['PUT'])
 def update_wordset(request):
@@ -143,12 +143,12 @@ def update_wordset(request):
 
     word_set = Word_set.objects.filter(id=word_set_id)
     word_set.update(name=name)
-    return JsonResponse("Poke", safe=False)
+    return JsonResponse(status=200, safe=False)
 
 @api_view(['POST'])
 def update_word_base(request):
-    return JsonResponse("Poke", safe=False)
+    return JsonResponse(status=200, safe=False)
 
 @api_view(['POST'])
 def update_word_transalation(request):
-    return JsonResponse("Poke", safe=False)
+    return JsonResponse(status=200, safe=False)

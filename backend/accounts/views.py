@@ -68,4 +68,4 @@ def update_password(request):
     user = User.objects.get(id=user_id)
     user.set_password(password)
     user.save()
-    return JsonResponse("kokotpero", safe=False)
+    return JsonResponse(status=200, safe=False)
