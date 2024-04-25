@@ -1,0 +1,21 @@
+<button class="btn-continue-restart" (click)="navigateToFlashcardNormal()">True/False</button>
+
+<div class="flashcard-container" *ngIf="resetToBeginning">
+    <label>
+      <div class="flashcard" [class.flipped]="flipped" (click)="toggle()">
+        <div class="front">
+          <span>{{ randomItem.base }}</span>
+        </div>
+        <div class="back">{{ randomItem.translation }}</div>
+      </div>
+    </label>
+  </div>
+  
+  <div class="button-container">
+    <button (click)="showPrevious()" [disabled]="currentIndex === 0">Previous</button>
+    <button (click)="resetToBeginning()" [disabled]="currentIndex === 0"><<</button>
+    <button (click)="showNext()" [disabled]="currentIndex === words.length - 1">Next</button>
+  </div>
+
+
+  

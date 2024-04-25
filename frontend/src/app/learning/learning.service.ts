@@ -10,4 +10,14 @@ export class LearningService {
   errorMessage: any;
 
   constructor(private http: HttpClient) { }
+
+
+  sendSuccesfulRate(success: boolean, wordId: any, userId: any) {
+    return this.http.post(this.baseUrl + 'word-rate/' + userId + '/' +  wordId, success);
+  }
+  restartAllWords(wordId: any) {
+    return this.http.post(this.baseUrl + 'word-rate/' + wordId, false);
+  }
 }
+
+

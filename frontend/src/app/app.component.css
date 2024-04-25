@@ -7,9 +7,9 @@
     left: 0;
     bottom: 0;
     width: 100%;
-    padding: 20px 0;
-    background-color: #fff;
-    border-top: 1px solid #ccc;
+    padding: 20px 0; 
+    background-color: #fff; 
+    border-top: 1px solid #ccc; 
 }
 body {
     background: linear-gradient(to right, #185582, #0c3b67, #0c3054, #0c1e2a);
