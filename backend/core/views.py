@@ -182,8 +182,9 @@ def update_word_base(request):
 
 @api_view(['POST'])
 def update_word_transalation(request):
-    return JsonResponse(status=200, safe=False)@api_view(['POST'])
+    return JsonResponse(status=200, safe=False)
 
+@api_view(['POST'])
 def word_rate(request, word_id, user_id):
     try:
         #chyba ze vse se nastavi na umi nebo neumim

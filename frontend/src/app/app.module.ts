@@ -21,7 +21,7 @@ import { AccountModule } from './account/account.module';
   declarations: [
     AppComponent,
     HeaderComponent,
-    NormalLearnComponent,
+
   ],
   imports: [
     BrowserModule,

@@ -5,10 +5,13 @@ import { MatButton, MatButtonModule, MatFabButton } from '@angular/material/butt
 import { MatIcon, MatIconModule } from '@angular/material/icon';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NormalLearnComponent } from '../normal-learn/normal-learn.component';
 
 @NgModule({
   declarations: [
-    LearningComponent
+    LearningComponent,
+    NormalLearnComponent
+
   ],
   imports: [
     CommonModule,
