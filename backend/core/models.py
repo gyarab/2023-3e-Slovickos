@@ -89,4 +89,4 @@ class Folder_Word_set_mapping(models.Model):
 class Success_rate(models.Model):
     word_id = models.ForeignKey(Word, on_delete=models.CASCADE, default=None)
     user_id = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
-    successfuly_translated = models.BooleanField(default=True)
+    successfuly_translated = models.BooleanField(default=False)

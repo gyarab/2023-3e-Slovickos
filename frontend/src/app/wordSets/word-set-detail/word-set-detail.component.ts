@@ -34,6 +34,7 @@ export class WordSetDetailComponent {
     private componentFactoryResolver: ComponentFactoryResolver
   ) { }
   
+  //getting setid from url and Words from backend
   ngOnInit() {
       this.route.paramMap.subscribe( (params: ParamMap) => {
       this.setid = params.get('setid')
@@ -50,10 +51,9 @@ export class WordSetDetailComponent {
     });
   }
 
-  //nvgNewWord(){
-    //this.router.navigate(['/word-sets/new-word'])
-  //}
 
+
+  //navigate to learing session (True/False)
   nvgLearning(){
     this.router.navigate(['/learning/',this.setid])
   }
@@ -69,17 +69,10 @@ export class WordSetDetailComponent {
     const wordComponentFactory = this.componentFactoryResolver.resolveComponentFactory(UpdateWordComponent);
     const componentRef = this.wordUpdateContainer.createComponent(wordComponentFactory);
   }
-  //POUIT Z NGOONINIT PARAM A ZISKAT SETID NO A PAK NEJAK PREDAT Z HTML ID SLOVICKA TO POSLAT ZE VYMAZAT
+ 
   deleteWord(id: any): void {
     this.wordSetService.deleteWord(id)
-      .subscribe(
-        response => {
-          console.table('Word Set deleted successfully');
-        },
-        error => {
-          console.error('Error deleting Word Set:', error);
-        }
-      );
+      .subscribe();
       location.reload()
   }
 

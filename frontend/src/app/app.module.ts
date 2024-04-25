@@ -13,6 +13,7 @@ import { WordSetModule } from './wordSets/word-set.module';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { LearningModule } from './learning/learning.module';
 import { HomeModule } from './home/home.module';
+import { NormalLearnComponent } from './normal-learn/normal-learn.component';
 import { AccountModule } from './account/account.module';
 
 
@@ -20,6 +21,7 @@ import { AccountModule } from './account/account.module';
   declarations: [
     AppComponent,
     HeaderComponent,
+
   ],
   imports: [
     BrowserModule,

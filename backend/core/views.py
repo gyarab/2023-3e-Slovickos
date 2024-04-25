@@ -1,8 +1,9 @@
-from datetime import datetime
+
+from datetime import date, datetime
 from random import randint
 from django.shortcuts import get_object_or_404
-from .models import User, Word_set, Word, User_Word_set_mapping
-from .serializers import User_name_serializer, Word_set_serializer, Word_serializer
+from .models import Success_rate, User, Word_set, Word, User_Word_set_mapping
+from .serializers import User_id_serializer, User_name_serializer, Word_set_serializer, Word_serializer
 from rest_framework.decorators import api_view
 from django.http import JsonResponse
 
@@ -42,11 +43,7 @@ def create_word_set(request):
     time_made.save()
 
     set_id = word_set.id
-    return JsonResponse(set_id, status=200)
-
-#@api_view(['POST'])
-#def create_word(request):
-#    return JsonResponse("word", safe=False)
+    return JsonResponse(set_id, safe=False)
 
 @api_view(['GET'])
 def get_word_set_detail(request, id):
@@ -54,6 +51,30 @@ def get_word_set_detail(request, id):
     queryset = Word.objects.filter(word_set_id = id)
 
     serializer = Word_serializer(queryset, many=True)
+
+    return JsonResponse(serializer.data, safe=False)
+
+@api_view(['GET'])
+def get_false_word_set_detail(request, id):
+
+    success_rates = Success_rate.objects.filter(successfuly_translated=False)
+
+        # Get word_ids associated with the filtered Success_rate objects
+    word_ids = success_rates.values_list('word_id', flat=True)
+
+        # Filter Word objects by word_ids and word_set_id
+    words = Word.objects.filter(id__in=word_ids, word_set_id=id)
+
+        # Serialize the filtered Word queryset
+    serializer = Word_serializer(words, many=True)
+
+    today_date = date.today()
+
+    lastview = User_Word_set_mapping.objects.filter(
+        word_set_id = id,
+    ).update(
+        last_view = today_date
+    )
 
     return JsonResponse(serializer.data, safe=False)
 
@@ -111,6 +132,16 @@ def create_word(request):
     new_word = Word.objects.create(word_set_id=wordset, base=base, translation=translation)
     new_word.save()
 
+
+    queryset = Word_set.objects.filter(id = word_set_id).values('owner_id')
+    print(queryset)
+    user_id = queryset[0]['owner_id']
+    print(user_id)
+   
+    user = User.objects.get(id=user_id)
+    success = Success_rate.objects.create(word_id = new_word, user_id = user) 
+    success.save()
+
     return JsonResponse(status=200, safe=False)
 
 
@@ -152,3 +183,52 @@ def update_word_base(request):
 @api_view(['POST'])
 def update_word_transalation(request):
     return JsonResponse(status=200, safe=False)
+
+@api_view(['POST'])
+def word_rate(request, word_id, user_id):
+    try:
+        #chyba ze vse se nastavi na umi nebo neumim
+        data = request.data
+        print(data)
+
+        user = get_object_or_404(User, id=user_id)
+        word = get_object_or_404(Word, id=word_id)
+
+        successfuly_translated = data      
+        
+        success_rate = Success_rate.objects.filter(user_id=user, word_id=word).update(
+            successfuly_translated = successfuly_translated
+        )
+        print("Success_rate object:", success_rate)
+
+    
+        return JsonResponse({'message': 'Success_rate updated successfully'}, status=200)
+
+    except User.DoesNotExist:
+        return JsonResponse({'error': 'User does not exist'}, status=404)
+
+    except Word.DoesNotExist:
+        return JsonResponse({'error': 'Word does not exist'}, status=404)
+
+    except Exception as e:
+        print("Error:", e)
+        return JsonResponse({'error': str(e)}, status=500)
+    
+@api_view(['POST'])
+def set_word_rate_allfalse(request, setid):
+    try:
+    
+        word_ids = Word.objects.filter(word_set_id=setid).values_list('id', flat=True)
+
+        for word_id in word_ids:
+            # Filter Success_rate objects by the current word_id
+            success_rates = Success_rate.objects.filter(word_id=word_id)
+
+            # Update the successfully_translated parameter to False for all filtered objects
+            success_rates.update(successfuly_translated=False)
+
+        return JsonResponse({'message': 'Success_rate updated successfully'}, status=200)
+
+    except Exception as e:
+        print("Error:", e)
+        return JsonResponse({'error': str(e)}, status=500)

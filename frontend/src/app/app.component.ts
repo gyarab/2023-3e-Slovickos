@@ -8,6 +8,8 @@ import { AuthService } from './auth/auth.service';
   encapsulation: ViewEncapsulation.None
 })
 export class AppComponent implements OnInit {
+
+  //authentication auto start
   title = 'authentication';
   constructor(private authService: AuthService){}
   ngOnInit(){

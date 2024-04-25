@@ -1,17 +1,29 @@
-<div class="flashcard-container" *ngIf="resetToBeginning">
-    <label>
-      <div class="flashcard" [class.flipped]="flipped" (click)="toggle()">
-        <div class="front">
-          <span>{{ randomItem.base }}</span>
-        </div>
-        <div class="back">{{ randomItem.translation }}</div>
+<button class="btn-continue-restart" (click)="navigateToFlashcardNormal()">Learn</button>
+
+<div class="flashcard-container" *ngIf="randomItem">
+  <label>
+    <div class="flashcard" [class.flipped]="flipped" (click)="toggle()">
+      <div class="front">
+        <span>{{ randomItem.base }}</span>
       </div>
-    </label>
-  </div>
-  
-  <div class="button-container">
-    <button (click)="showPrevious()" [disabled]="currentIndex === 0">Previous</button>
-    <button (click)="resetToBeginning()" [disabled]="currentIndex === 0">Restart</button>
-    <button (click)="showNext()" [disabled]="currentIndex === words.length - 1">Next</button>
-  </div>
-  
+      <div class="back">{{ randomItem.translation }}</div>
+    </div>
+  </label>
+</div>
+
+<div class="button-container" *ngIf="randomItem">
+  <!-- Buttons to indicate correctness -->
+  <button mat-fab class="btn-checkin" (click)="evaluateWord(true, randomItem.id)" [disabled]="isButtonDisabled">
+    <mat-icon>check</mat-icon>
+  </button>
+  <button mat-fab class="btn-closein" (click)="evaluateWord(false, randomItem.id)" [disabled]="isButtonDisabled">
+    <mat-icon>close</mat-icon>
+  </button>
+</div>
+
+<div class="button-container" *ngIf="showRestartButton || words.length === 0">
+  <button class="btn-continue-restart" (click)="continue()">Continue</button>
+  <button class="btn-continue-restart" (click)="restart()">Restart</button>
+</div>
+
+

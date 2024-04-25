@@ -15,3 +15,8 @@ class User_name_serializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ['name']
+
+class User_id_serializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ['id']

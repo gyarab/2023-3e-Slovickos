@@ -22,8 +22,7 @@ export class WordSetService {
     return this.http.post<WordSetData>(this.baseUrl + 'new', set);
   }
 
-  createWord(wordData: WordData): Observable<any> {
-    
+  createWord(wordData: WordData): Observable<any> { 
     return this.http.post<WordData>(this.baseUrl + 'new-word', wordData)
       .pipe(
         catchError(error => {
@@ -34,6 +33,10 @@ export class WordSetService {
 
   getWordSet(setId: number): Observable<any> {
     return this.http.get(this.baseUrl + setId);
+  }
+
+  getFalseWordSet(setId: number): Observable<any> {
+    return this.http.get(this.baseUrl + 'false/' + setId);
   }
 
   deleteWordSet(setId: number): Observable<any> {

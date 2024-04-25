@@ -2,20 +2,19 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 70vh; 
+    height: 70vh;
 }
 
 .flashcard {
     width: 300px; 
     height: 500px; 
-    position: relative;
     -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
     -webkit-transition: all 600ms;
     transition: all 600ms;
     cursor: pointer;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 10px 20px rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
+    border-radius: 20px;
 }
 
 .flashcard div {
@@ -28,6 +27,7 @@
     backface-visibility: hidden;
     border: 2px solid grey;
     border-radius: 20px;
+    
 }
 
 .front {
@@ -38,9 +38,8 @@
 .back {
     -webkit-transform: rotateY(180deg);
     transform: rotateY(180deg);
-    background-color: rgba(1, 1, 1, 0.1);
     background-color: lightgray;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); 
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 .flashcard.flipped {
@@ -50,40 +49,28 @@
 .button-container {
     display: flex;
     justify-content: center;
-    margin-top:0px;
-    
+    margin-top: 20px;
 }
 
-.btn-checkin {
-    font-size: 30px;
-    background-color: #d19557;
-    color: #00ff00;
-    border: none;
-    cursor: pointer;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
-    margin-right: 20px; 
-}
-
-.btn-closein {
-    font-size: 30px;
-    background-color: #d19557;
-    color: #ff0000;
-    border: none;
-    cursor: pointer;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.9);
-}
-
-
-
-.btn-closein:hover {
-    transform: scale(1.2);
-    background-color: #ff0000;
+.button-container button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
     color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
 }
-.btn-checkin:hover {
-    transform: scale(1.2);
-    background-color: #00ff00;
-    color: white;
+
+.button-container button:disabled {
+    background-color: #ddd; 
+    color: #888; 
+    cursor: not-allowed;
+  }
+
+.button-container button:hover {
+    background-color: #0056b3;
 }
 
 .btn-continue-restart {
@@ -93,15 +80,9 @@
     border: none;
     cursor: pointer;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
-    margin-right: 20px;
+    margin-right: 20px; 
     margin-top: 20px;
     padding: 10px 20px;
     border-radius: 10px;
     transition: transform 0.3s ease;
   }
-  
-  .btn-continue-restart:hover {
-    transform: scale(1.1);
-    background-color: #d19557; 
-  }
-  

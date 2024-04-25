@@ -8,6 +8,7 @@ import { WordSetDetailComponent } from './wordSets/word-set-detail/word-set-deta
 import { NewWordComponent } from './wordSets/word-set-detail/new-word/new-word.component';
 import { LearningComponent } from './learning/learning.component';
 import { HomeComponent } from './home/home.component';
+import { NormalLearnComponent } from './normal-learn/normal-learn.component';
 import { UpdateAccountComponent } from './account/update-account/update-account.component';
 
 const routes: Routes = [
@@ -19,6 +20,7 @@ const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'new-word', component: NewWordComponent},
   {path: 'learning/:setid', component: LearningComponent},
+  {path: 'normallearning/:setid', component: NormalLearnComponent},
   {path: 'profile/update', component: UpdateAccountComponent},
 ];
 

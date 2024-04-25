@@ -27,12 +27,12 @@ export class NewWordComponent implements OnInit {
   
   
   ngOnInit() {
-    // získání idsetu z URL
+    // recieving setid from URL
     this.route.paramMap.subscribe( (params: ParamMap) => {
       this.setid = params.get('setid')
     });
 
-    // formGroup - vytvářím políčka pro input usera
+    // formGroup - makes poles for input user
     this.myForm = new FormGroup({
       base: new FormControl ('', [Validators.required, Validators.pattern(NameValid)]),
       translation: new FormControl ('', [Validators.required, Validators.pattern(NameValid)]),
@@ -41,7 +41,7 @@ export class NewWordComponent implements OnInit {
   
   handleCreateWord() {
     if (this.myForm.valid) {
-      // hodnoty z formGroup na POST request Djanga 
+      // values from formGroup to POST request Django 
       const baseValue = this.myForm.get('base')?.value;
       const translationValue = this.myForm.get('translation')?.value;
       this.newWordVariable = new WordData (this.setid, baseValue, translationValue)
