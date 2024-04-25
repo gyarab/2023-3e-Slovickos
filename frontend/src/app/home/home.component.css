@@ -21,7 +21,7 @@
 }
 
 .set-button {
-  position: relative; /* Add position relative to set-button */
+  position: relative;
   width: 200px;
   height: 150px;
   background-color: #000e1f;

@@ -1,6 +1,6 @@
 .container-wide {
-    max-width: 1200px; /* Adjust width as needed */
-    width: 100%; /* Make sure it fills the available space */
+    max-width: 1200px;
+    width: 100%;
     margin: 0 auto;
     padding: 20px;
 }
@@ -24,26 +24,26 @@
 
 .set-item {
     padding: 10px 20px;
-    color: #e9c561; /* Set text color */
+    color: #e9c561; 
     text-decoration: none;
     transition: 0.4s all ease-in;
-    letter-spacing: 2px; /* Reduced letter spacing */
+    letter-spacing: 2px; 
     overflow: hidden;
-    border: 2px solid #e9c561; /* Set border */
+    border: 2px solid #e9c561; 
     background: #000e1f;
     width: 100%;
     margin-top: 10px;
 }
 
 .set-button {
-    padding: 10px 20px; /* Decreased padding to make the button smaller */
-    color: #e9c561; /* Set text color */
+    padding: 10px 20px; 
+    color: #e9c561; 
     text-decoration: none;
     text-transform: uppercase;
     transition: 0.4s all ease-in;
-    letter-spacing: 2px; /* Reduced letter spacing */
+    letter-spacing: 2px; 
     overflow: hidden;
-    border: 2px solid #e9c561; /* Set border */
+    border: 2px solid #e9c561; 
     background: #000e1f;
     width: 100%;
     margin-top: 1%;
@@ -51,7 +51,7 @@
 }
 
 .set-button:hover {
-    background: linear-gradient(to right, #d19557, #e9c561); /* Change background color on hover */
+    background: linear-gradient(to right, #d19557, #e9c561); 
     color: #050801;
     box-shadow: 0 0 2px #e9c561, 0 0 2px #e9c561, 0 0 2px #d19557, 0 0 2px #d19557;
 }
@@ -63,7 +63,7 @@
 
 .word {
     display: flex;
-    align-items: center; /* Align items vertically */
+    align-items: center; 
     width: 100%;
 }
 
@@ -75,12 +75,12 @@
 
 .word-base {
     padding: 10px 20px;
-    color: #e9c561; /* Set text color */
+    color: #e9c561; 
     text-decoration: none;
     transition: 0.4s all ease-in;
-    letter-spacing: 2px; /* Reduced letter spacing */
+    letter-spacing: 2px; 
     overflow: hidden;
-    border: 2px solid #e9c561; /* Set border */
+    border: 2px solid #e9c561; 
     background: #000e1f;
     width: 48%;
     margin-right: 1%;
@@ -88,12 +88,12 @@
 
 .word-translation {
     padding: 10px 20px;
-    color: #e9c561; /* Set text color */
+    color: #e9c561; 
     text-decoration: none;
     transition: 0.4s all ease-in;
-    letter-spacing: 2px; /* Reduced letter spacing */
+    letter-spacing: 2px; 
     overflow: hidden;
-    border: 2px solid #e9c561; /* Set border */
+    border: 2px solid #e9c561; 
     background: #000e1f;
     width: 48%;
     margin-left: 1%;
@@ -103,20 +103,20 @@
     background: none;
     width: 30px;
     height: 30px;
-    margin-left: 10px; /* Add small space between translation and delete button */
+    margin-left: 10px; 
     border-radius: 50%;
     border: none;
     cursor: pointer;
     transition: transform 0.3s ease;
-    box-shadow: none; /* Remove shadow from delete button */
+    box-shadow: none; 
 }
 
 .delete-button .mat-icon {
-    color: #ff0000; /* Change to your desired icon color */
+    color: #ff0000; 
 }
 
 .mat-mdc-unelevated-button:not(:disabled) {
-    margin-top: 10px; /* Adjust the margin-top value as needed */
+    margin-top: 10px; 
     background-color: #d19557;
     border-radius: 100px;
     color: #000e1f;

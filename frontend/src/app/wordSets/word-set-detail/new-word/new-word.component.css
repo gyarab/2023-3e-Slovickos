@@ -30,29 +30,29 @@
 }
 
 .base-input {
-  width: 100%; /* Take up full width */
+  width: 100%;
 }
 
 .translation-input {
-  width: 100%; /* Take up full width */
-  order: 1; /* Move translation input to the end of the row */
+  width: 100%;
+  order: 1;
 }
 
 .form__group {
   position: relative;
   padding: 15px 0 0;
   margin-top: 10px;
-  width: 48%; /* Adjusted width to create space between inputs */
+  width: 48%;
 }
 
 .form__field {
   font-family: inherit;
   width: 100%;
   border: 0;
-  border-bottom: 2px solid #9b9b9b; /* $gray */
+  border-bottom: 2px solid #9b9b9b;
   outline: 0;
   font-size: 1.3rem;
-  color: #fff; /* $white */
+  color: #fff;
   padding: 7px 0;
   background: transparent;
   transition: border-color 0.2s;
@@ -62,10 +62,10 @@
   }
 
   &:placeholder-shown ~ .form__label {
-    font-size: 1rem; /* Adjusted font-size for animation */
+    font-size: 1rem;
     cursor: text;
     top: 20px;
-    color: #9b9b9b; /* $gray */
+    color: #9b9b9b;
   }
 }
 
@@ -74,8 +74,8 @@
   top: 0;
   display: block;
   transition: 0.2s;
-  font-size: 1.3rem; /* Adjusted font-size for initial state */
-  color: #9b9b9b; /* $gray */
+  font-size: 1.3rem;
+  color: #9b9b9b;
 }
 
 .form__field:focus {
@@ -85,41 +85,41 @@
     display: block;
     transition: 0.2s;
     font-size: 1rem;
-    color: #e9c561; /* $primary */
+    color: #e9c561;
     font-weight: 700;    
   }
   padding-bottom: 6px;  
   font-weight: 700;
   border-width: 3px;
-  border-image: linear-gradient(to right, #e9c561, #d19557); /* $primary, $secondary */
+  border-image: linear-gradient(to right, #e9c561, #d19557);
   border-image-slice: 1;
 }
 
 .button-container {
-  width: 100%; /* Set width to 100% */
+  width: 100%;
   display: flex;
-  justify-content: center; /* Center the button horizontally */
-  margin-top: 20px; /* Adjust margin top for spacing */
-  position: relative; /* Set position to relative */
-  top: -20px; /* Move the button upwards by 20px */
+  justify-content: center;
+  margin-top: 20px; 
+  position: relative;
+  top: -20px;
 }
 
 
 .button {
-  padding: 10px 20px; /* Decreased padding to make the button smaller */
-  color: #e9c561; /* Set text color */
+  padding: 10px 20px; 
+  color: #e9c561;
   text-decoration: none;
   text-transform: uppercase;
   transition: 0.4s all ease-in;
-  letter-spacing: 2px; /* Reduced letter spacing */
+  letter-spacing: 2px;
   overflow: hidden;
-  border: 2px solid #e9c561; /* Set border */
+  border: 2px solid #e9c561;
   background: transparent;
   width: 200px;
 }
 
 .button:hover {
-  background: linear-gradient(to right, #d19557, #e9c561); /* Change background color on hover */
+  background: linear-gradient(to right, #d19557, #e9c561);
   color: #050801;
   box-shadow: 0 0 20px #e9c561, 0 0 20px #e9c561, 0 0 20px #d19557, 0 0 20px #d19557;
 }

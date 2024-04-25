@@ -21,7 +21,7 @@ def get_user_word_sets(request):
             'username': user_name_serializer.data,
             'word_sets': word_set_serializer.data,
         }
-    return JsonResponse(response_data, safe=False)
+    return JsonResponse(response_data, status=200)
 
 # Dostanu z FE informace o novem setu a zapisu to do DB
 @api_view(['POST'])
