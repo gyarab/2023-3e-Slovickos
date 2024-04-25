@@ -1,0 +1,15 @@
+<div class="row">
+    <form [formGroup]="newWord" (ngSubmit)="handleUpdateWord()">
+    <div class="form__group field">
+        <input id="new-name" type="text" formControlName="base" class="form__field new-name" placeholder="base" (click)="preventPropagation($event)">
+        <label for="new-name" class="form__label" (click)="preventPropagation($event)">Base</label>
+    </div>
+    <div class="form__group field">
+        <input id="new-name" type="text" formControlName="translation" class="form__field new-name" placeholder="translation" (click)="preventPropagation($event)">
+        <label for="new-name" class="form__label" (click)="preventPropagation($event)">Translation</label>
+    </div>
+    <div class="submit">
+        <button class="submit-button" type="submit" [disabled]="newWord.invalid" preventPropagation($event) (keyup.enter)="handleUpdateWord()">Submit</button>
+    </div>
+    </form>
+</div>

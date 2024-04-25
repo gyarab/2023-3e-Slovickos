@@ -21,10 +21,10 @@
 }
 
 .set-button {
-  position: relative; /* Add position relative to set-button */
+  position: relative;
   width: 200px;
   height: 150px;
-  background-color: #0E0066;
+  background-color: #000e1f;
   color: #fff;
   padding: 15px;
   border-radius: 10px;
@@ -34,7 +34,7 @@
 }
 
 .set-button:hover {
-  background-color: #2F0066;
+  background-color: #1f3140;
 }
 
 .set-button h1 {
@@ -79,11 +79,16 @@
   text-align: center;
   margin-bottom: 50px;
   color: #fff;
+  font-size: large;
 }
 
 .welcome-content {
   max-width: 600px;
   margin: 0 auto;
+}
+
+.welcome-content h1 {
+  font-size: 35px;
 }
 
 .features-section {
@@ -94,7 +99,8 @@
 
 .feature {
   flex: 0 0 calc(50% - 20px);
-  background-color: #ffffff;
+  background-color: #000e1f;
+  color: #fff;
   padding: 20px;
   border-radius: 5px;
 }
@@ -122,6 +128,15 @@
   transition: background-color 0.3s ease;
 }
 
-.get-started-btn:hover {
-  background-color: #fffb00;
+.mat-mdc-unelevated-button:not(:disabled) {
+  background-color: #d19557;
+  color: #000e1f;
+}
+
+.mdc-button:hover {
+  background-color: #f0ddb7;
+}
+
+.button-get-started {
+  margin-top: 40px;
 }

@@ -1,0 +1,9 @@
+<div class="row">
+    <div class="form__group field">
+        <input id="new-name" type="text" [formControl]="newName" class="form__field new-name" placeholder="New Word Set Name" (click)="preventPropagation($event)">
+        <label for="new-name" class="form__label" (click)="preventPropagation($event)">New Word Set Name</label>
+    </div>
+    <div class="submit">
+        <button class="submit-button" (click)="updateWordSet(); preventPropagation($event)" (keyup.enter)="updateWordSet()" [disabled]="newName.invalid">Submit</button>
+    </div>
+</div>

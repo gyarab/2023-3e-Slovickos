@@ -1,0 +1,71 @@
+<div class="container">
+    <div class="headline">
+        <h1>Update User Profile</h1>
+    </div>
+    <div class="row">
+        <div class="form__group field">
+            <input id="new-name" type="text" [formControl]="newName" class="form__field new-name" placeholder="New name">
+            <label for="new-name" class="form__label">New Name</label>
+        </div>
+        <div class="submit">
+            <button class="submit-button" (click)="updateName()" [disabled]="newName.invalid">Submit</button>
+        </div>
+    </div>
+    <div class="error-message" *ngIf="newName.invalid && (newName.dirty || newName.touched)">
+        <span *ngIf="newName.errors?.['required']">Name is required</span>
+        <span *ngIf="newName.errors?.['pattern']">Name must contain only letters</span>
+    </div>
+    <div class="row">
+        <div class="form__group field">
+            <input id="new-username" type="text" [formControl]="newUserName" class="form__field new-username" placeholder="New username">
+            <label for="new-username" class="form__label">New Username</label>
+        </div>
+        <div class="submit">
+            <button class="submit-button" (click)="updateUserName()" [disabled]="newUserName.invalid">Submit</button>
+        </div>
+    </div>
+    <div class="error-message" *ngIf="newUserName.invalid && (newUserName.dirty || newUserName.touched)">
+        <span *ngIf="newUserName.errors?.['required']" class="block">Username is required.</span>
+        <span *ngIf="newUserName.errors?.['pattern']" class="block">Username can only contain letters, numbers, and underscores.</span>
+    </div>
+    <div class="row">
+        <div class="form__group field">
+            <input id="new-email" type="text" [formControl]="newEmail" class="form__field new-email" placeholder="New email">
+            <label for="new-email" class="form__label">New Email</label>
+        </div>
+        <div class="submit">
+            <button class="submit-button" (click)="updateEmail()" [disabled]="newEmail.invalid">Submit</button>
+        </div>
+    </div>
+    <div class="error-message" *ngIf="newEmail.invalid && newEmail.dirty">
+        <span *ngIf="newEmail.errors?.['required']" class="block">Email is required.</span>
+        <span *ngIf="newEmail.errors?.['email']" class="block">Invalid email format.</span>
+    </div>
+    <div class="row">
+        <form [formGroup]="passwords" (ngSubmit)="updatePassword()" style="display: flex; width: 100%;">
+            <div class="password-fields" style="width: 65%;">
+                <div class="form__group field" style="width: 100%;">
+                    <input id="new-password" type="password" formControlName="newPassword" class="form__field new-password" placeholder="New password">
+                    <label for="new-password" class="form__label">New Password</label>
+                    <div class="error-message" *ngIf="passwords.get('newPassword')?.dirty && passwords.get('newPassword')?.invalid">
+                        <span *ngIf="!passwordStrength.uppercase" class="block">At least one uppercase letter. </span>
+                        <span *ngIf="!passwordStrength.lowercase" class="block">At least one lowercase letter. </span>
+                        <span *ngIf="!passwordStrength.digit" class="block">At least one digit. </span>
+                        <span *ngIf="!passwordStrength.specialCharacter" class="block">At least one special character (!"&#64;"#$%^&*). </span>
+                        <span *ngIf="!passwordStrength.minLength" class="block">At least 8 characters long. </span>
+                    </div>
+                </div>
+                <div class="form__group field" style="width: 100%; margin-top: 20px; margin-bottom: 50px;">
+                    <input id="confirm-new-password" type="password" formControlName="newPasswordConfirm" class="form__field confirm-new-password" placeholder="Confirm new password">
+                    <label for="confirm-new-password" class="form__label">Confirm New Password</label>
+                    <div class="error-message" *ngIf="passwords.get('newPasswordConfirm')?.dirty && passwords.get('newPasswordConfirm')?.invalid || passwords.errors?.['notsame']">
+                        <span *ngIf="passwords.errors?.['notsame']" class="block">Passwords do not match.</span>
+                    </div>
+                </div>
+            </div>
+            <div class="submit" style="width: 25%; position: relative; justify-content: center; align-self: center; margin-left: 8%;">
+                <button class="submit-button" type="submit" [disabled]="passwords.invalid" style="width: 200px;">Submit</button>
+            </div>
+        </form>
+    </div>    
+</div>

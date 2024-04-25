@@ -1,7 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { User } from '../auth/auth.model';
+import { User } from '../../auth/auth.model';
 import { Subscription } from 'rxjs';
-import { AuthService } from '../auth/auth.service';
+import { AuthService } from '../../auth/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-account',
@@ -11,7 +12,10 @@ import { AuthService } from '../auth/auth.service';
 export class AccountComponent implements OnInit, OnDestroy{
   user!: User;
   userSub!: Subscription;
-  constructor(private authService: AuthService) {  }
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+  ) {  }
   
   ngOnInit(): void {
     this.userSub = this.authService.user.subscribe(
@@ -20,7 +24,12 @@ export class AccountComponent implements OnInit, OnDestroy{
       }
     )
   }
+
   ngOnDestroy(): void {
     this.userSub.unsubscribe()
+  }
+
+  nvgProfileUpdate() {
+    this.router.navigate(['profile/update'])
   }
 }

@@ -8,6 +8,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { WordSetDetailComponent } from './word-set-detail/word-set-detail.component';
 import { WordSetDetailModule } from './word-set-detail/word-set-detail/word-set-detail.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { UpdateWordsetComponent } from './update-wordset/update-wordset.component';
 
 
 @NgModule({
@@ -15,7 +16,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     WordSetListComponent,
     NewWordSetComponent,
     WordSetDetailComponent,
-  
+    UpdateWordsetComponent,
   ],
   imports: [
     CommonModule,

@@ -1,6 +1,7 @@
 from typing import Tuple
 from django.contrib.auth import get_user_model, authenticate
 from rest_framework import serializers
+from core.models import User
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
@@ -30,3 +31,8 @@ class AuthTokenSerializer(serializers.Serializer):
             raise serializers.ValidationError("Invalid User Credentials")
         attrs['user'] =user
         return attrs
+
+class UserDataSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ['id', 'name', 'username', 'email']

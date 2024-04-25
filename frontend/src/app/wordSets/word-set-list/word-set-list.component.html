@@ -1,20 +1,32 @@
 <div class="container">
   <div class="example-button-container">
-    <button mat-fab color="accent" (click)="newSet()">
+    <button mat-fab class="new-set-button" (click)="newSet()">
       <mat-icon>library_add</mat-icon>
     </button>
   </div>
   <div class="content">
     <ul class="set-list">
-      <li *ngFor="let set of sets" class="set-item">
+      <li *ngFor="let set of sets; let i = index" class="set-item">
         <div class="set-button" (click)="nvgWordSetDetail(set.id)">
-          <h1>{{ set.name }}</h1>
+          <div class="name-content" *ngIf="buttonVisibleMap[set.id]">
+            <h1>{{ set.name }}</h1>
+          </div>
+          <div class="update-button-container">
+            <button class="update-button" (click)="displayWordSetUpdateComponent($event, set.id, i); $event.stopPropagation()" *ngIf="buttonVisibleMap[set.id]">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <ng-container #wordSetUpdateContainer $event.stopPropagation()></ng-container>
+          </div>
           <div class="set-details">
-          <p>{{ username }}</p>
-          <p>{{ set.created }}</p>
+            <p>{{ username }}</p>
+            <p>{{ set.created }}</p>
+          </div>
+          <div class="delete-button-container">
+            <button class="custom-delete-button" (click)="deleteWordSet(set.id); $event.stopPropagation()">
+              <mat-icon>delete</mat-icon>
+            </button>
           </div>
         </div>
-        <button mat-flat-button color="accent" (click)="deleteWordSet(set.id)">DELETE</button>
       </li>
     </ul>
   </div>

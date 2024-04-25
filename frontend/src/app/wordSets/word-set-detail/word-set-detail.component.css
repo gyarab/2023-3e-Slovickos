@@ -1,10 +1,20 @@
-.container {
-    display: flex;
-    justify-content: center;
+.container-wide {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
 }
 
 .content {
-    width: 80%; /* Adjust the width as needed */
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 
 .set-list {
@@ -13,22 +23,105 @@
 }
 
 .set-item {
-    display: flex;
-    justify-content: space-between;
-    border-bottom: 1px solid #ccc; /* Add a border between list items */
-    padding: 10px 0;
+    padding: 10px 20px;
+    color: #e9c561; 
+    text-decoration: none;
+    transition: 0.4s all ease-in;
+    letter-spacing: 2px; 
+    overflow: hidden;
+    border: 2px solid #e9c561; 
+    background: #000e1f;
+    width: 100%;
+    margin-top: 10px;
 }
 
-.word-base,
-.word-translation,
-.word-set-id {
-    flex: 1; /* Equal width for all divs within set-item */
+.set-button {
+    padding: 10px 20px; 
+    color: #e9c561; 
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: 0.4s all ease-in;
+    letter-spacing: 2px; 
+    overflow: hidden;
+    border: 2px solid #e9c561; 
+    background: #000e1f;
+    width: 100%;
+    margin-top: 1%;
+    align-items: center;
+}
+
+.set-button:hover {
+    background: linear-gradient(to right, #d19557, #e9c561); 
+    color: #050801;
+    box-shadow: 0 0 2px #e9c561, 0 0 2px #e9c561, 0 0 2px #d19557, 0 0 2px #d19557;
+}
+
+.set-button h1 {
+    margin: 0;
+    font-size: 25px;
+}
+
+.word {
+    display: flex;
+    align-items: center; 
+    width: 100%;
+}
+
+.delete-word {
+    display: flex;
+    align-items: center;
+    width: 100%;
 }
 
 .word-base {
-    text-align: left;
+    padding: 10px 20px;
+    color: #e9c561; 
+    text-decoration: none;
+    transition: 0.4s all ease-in;
+    letter-spacing: 2px; 
+    overflow: hidden;
+    border: 2px solid #e9c561; 
+    background: #000e1f;
+    width: 48%;
+    margin-right: 1%;
 }
 
 .word-translation {
-    text-align: right;
+    padding: 10px 20px;
+    color: #e9c561; 
+    text-decoration: none;
+    transition: 0.4s all ease-in;
+    letter-spacing: 2px; 
+    overflow: hidden;
+    border: 2px solid #e9c561; 
+    background: #000e1f;
+    width: 48%;
+    margin-left: 1%;
+}
+
+.delete-button {
+    background: none;
+    width: 30px;
+    height: 30px;
+    margin-left: 10px; 
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    box-shadow: none; 
+}
+
+.delete-button .mat-icon {
+    color: #ff0000; 
+}
+
+.mat-mdc-unelevated-button:not(:disabled) {
+    margin-top: 10px; 
+    background-color: #d19557;
+    border-radius: 100px;
+    color: #000e1f;
+}
+
+.mat-mdc-unelevated-button:hover{
+    background-color: #f0ddb7;
 }

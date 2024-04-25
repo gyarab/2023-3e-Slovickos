@@ -1,0 +1,115 @@
+.container {
+  width: 80%;
+  margin: 0 auto;
+  border-radius: 10px;
+  background: transparent;
+}
+
+.headline {
+  margin-bottom: 20px;
+  margin-top: 6%;
+  align-items: center;
+}
+
+h1 {
+  color: #fff;
+  font-size: 35px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  width: 100%; 
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+.form__group {
+  position: relative;
+  padding: 15px 0 0;
+  margin-top: 20px;
+  width: 65%;
+}
+
+.submit{
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  padding: 15px 0 0;
+  margin-top: 10px;
+  width: 25%;
+  justify-content: flex-start;
+}
+
+.submit-button {
+  padding: 10px 20px;
+  color: #8FB8BF;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: 0.4s all ease-in;
+  letter-spacing: 2px;
+  overflow: hidden;
+  border: 2px solid #8FB8BF;
+  background: transparent;
+  width: 200px;
+}
+
+.submit-button:hover {
+  background: linear-gradient(to right, #8FBFB7, #8FB8BF);
+  color: #050801;
+  box-shadow: 0 0 20px #8FB8BF, 0 0 20px #8FB8BF, 0 0 20px #8FBFB7, 0 0 20px #8FBFB7;
+}
+
+.form__field {
+  width: 100%;
+  border: 0;
+  border-bottom: 2px solid #9b9b9b;
+  outline: 0;
+  font-size: 1.4rem;
+  color: #fff;
+  padding: 7px 0;
+  background: transparent;
+  transition: border-color 0.2s;
+
+  &::placeholder {
+    color: transparent;
+  }
+
+  &:placeholder-shown ~ .form__label {
+    font-size: 1rem;
+    cursor: text;
+    top: 20px;
+    color: #9b9b9b;
+  }
+}
+
+.form__label {
+  position: absolute;
+  top: -15px;
+  display: block;
+  transition: 0.2s;
+  font-size: 1.3rem;
+  color: #9b9b9b;
+}
+
+.form__field:focus {
+  ~ .form__label {
+    position: absolute;
+    top: -15px;
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+    color: #8FB8BF;
+    font-weight: 700;    
+  }
+  padding-bottom: 6px;  
+  font-weight: normal;
+  border-width: 3px;
+  border-image: linear-gradient(to right, #8FB8BF, #8FBFB7);
+  border-image-slice: 1;
+}
+
+.error-message {
+  color: #ff0000;
+  font-size: 0.9rem;
+}

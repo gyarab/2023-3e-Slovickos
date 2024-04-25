@@ -4,47 +4,107 @@
 }
   
 .set-item {
-  border-radius: 5px;
-  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
   padding: 10px;
+  position: relative;
+  border-bottom: 1px solid #ccc;
 }
 .set-item h1 {
   font-size: 25px;
 }
 .set-button {
-  background-color: #0E0066; /* Darker blue color */
-  color: #fff; /* White text color */
-  padding: 10px; /* Padding to adjust size */
-  border: none; /* Remove border */
-  width: 100%; /* Make the button width same as the list item */
-  text-align: left; /* Align text to the left */
+  background-color: #000e1f; 
+  color: #fff; 
+  padding: 10px; 
+  border: none; 
+  width: 100%; 
+  text-align: left; 
   border-radius: 5px;
+  position: relative;
 }
 
 .set-button:hover {
-  background-color: #2F0066; /* Darker blue color on hover */
+  background-color: #1f3140;
+  transform: translateY(10px); 
 }
 
 .container {
   display: flex;
   flex-direction: column;
+  position: relative; 
 }
 
 .example-button-container {
   position: fixed;
   top: 600px;
   right: 30px;
-  z-index: 999; /* Ensures it stays on top of other content */
+  z-index: 999; 
 }
 
 .content {
   flex-grow: 1;
   overflow-y: auto;
-  margin-top: 60px; /* Adjust as needed to prevent content from being covered by the button */
+  margin-top: 60px;
 }
 
 .set-details p {
   margin: 5px 0;
   font-size: 14px;
   color: #cccacaef;
+}
+
+.custom-delete-button {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s ease; 
+}
+
+.custom-delete-button .mat-icon {
+  color: #ff0000; 
+}
+
+.delete-button-container {
+  display: flex;
+  align-items: center;
+}
+
+.custom-delete-button:hover {
+  transform: scale(1.7); 
+}
+
+.new-set-button {
+  background-color: #d19557;
+  color: #000e1f;
+  transition: transform 0.3s ease;
+}
+
+.new-set-button:hover {
+  transform: scale(1.3);
+}
+
+.update-button-container {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.update-button {
+  position: absolute;
+  color: #fff;
+  bottom: 70%;
+  right: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s ease; 
+}
+
+.update-button:hover {
+  transform: scale(1.7);
 }

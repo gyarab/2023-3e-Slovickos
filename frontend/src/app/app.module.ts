@@ -4,7 +4,6 @@ import { BrowserModule, provideClientHydration } from '@angular/platform-browser
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { AccountComponent } from './account/account.component';
 import { AuthModule } from './auth/auth.module';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -14,13 +13,13 @@ import { WordSetModule } from './wordSets/word-set.module';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { LearningModule } from './learning/learning.module';
 import { HomeModule } from './home/home.module';
+import { AccountModule } from './account/account.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    AccountComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,6 +30,7 @@ import { HomeModule } from './home/home.module';
     WordSetModule,
     LearningModule,
     HomeModule,
+    AccountModule,
   ],
   providers: [
     provideClientHydration(),

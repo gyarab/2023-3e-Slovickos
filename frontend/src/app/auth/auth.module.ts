@@ -3,6 +3,7 @@ import { AuthComponent } from "./auth.component";
 import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
 import { AuthService } from "./auth.service";
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
     declarations:[
@@ -10,7 +11,8 @@ import { AuthService } from "./auth.service";
     ],
     imports: [
         ReactiveFormsModule,
-        CommonModule
+        CommonModule,
+        MatSnackBarModule,
     ],
     providers: [AuthService]
 })

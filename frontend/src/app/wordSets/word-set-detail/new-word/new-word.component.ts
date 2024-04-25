@@ -2,7 +2,7 @@ import { Component, OnInit, model } from '@angular/core';
 import { DataService } from '../../../data.service'; 
 import { WordSetService } from '../../word-set.service';
 import {  ActivatedRoute, ParamMap, Router } from '@angular/router';
-import { WordData } from '../../word-set.model';
+import { NameValid, WordData } from '../../word-set.model';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
 
 
@@ -17,11 +17,13 @@ export class NewWordComponent implements OnInit {
   base!: FormControl;
   translation!: FormControl;
   setid!: any;
-  myForm: FormGroup = new FormGroup({})
-  constructor( private dataService: DataService,
-     private  wordSetService: WordSetService,
-     private route: ActivatedRoute,
-      private router: Router) {}
+  myForm: FormGroup = new FormGroup({});
+  constructor(
+    private dataService: DataService,
+    private  wordSetService: WordSetService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {}
   
   
   ngOnInit() {
@@ -32,8 +34,8 @@ export class NewWordComponent implements OnInit {
 
     // formGroup - vytvářím políčka pro input usera
     this.myForm = new FormGroup({
-      base: new FormControl ('',Validators.required),
-      translation: new FormControl ('',Validators.required),
+      base: new FormControl ('', [Validators.required, Validators.pattern(NameValid)]),
+      translation: new FormControl ('', [Validators.required, Validators.pattern(NameValid)]),
     });
   }
   
